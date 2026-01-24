@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arv Energy</title>
+  <meta name="description" content="ARV Energy develops modern nuclear plant concepts to deliver reliable, clean power for long-term resilience." />
+  <link rel="canonical" href="https://www.arv.energy/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E1GCP7S7Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied'
+    });
+    gtag('config', 'G-2E1GCP7S7Z');
+  </script>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="wrap site-header">
+      <div class="brand">
+        <span class="brand-name">Arv Energy</span>
+      </div>
+      <nav class="nav">
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap" id="top">
+        <div class="hero-content stagger">
+          <h1>Arv Energy</h1>
+          <p class="lead">Arv Energy is innovating nuclear power plant design for constructability, leveraging the Norwegian offshore industry to deliver clean, reliable energy for generations to come.</p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:martin.hjelmeland@arv.energy?subject=Hello%20Arv%20Energy">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <img src="assets/Vertical-white-text.svg" alt="Arv Energy logo" class="hero-logo" />
+        </div>
+      </section>
+
+      <section class="wrap section" id="contact">
+        <div class="contact-card">
+          <div>
+            <h2>Let’s build the next generation of nuclear infrastructure.</h2>
+            <p>Interested in learning more about what we do, please reach out.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:martin.hjelmeland@arv.energy?subject=Hello%20Arv%20Energy">martin.hjelmeland@arv.energy</a>
+            <a class="btn ghost" href="https://www.arv.energy/">www.arv.energy</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap footer">
+      <p>&copy; 2026 Arv Energy · <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <p>We use cookies for analytics to understand site traffic. By clicking accept, you consent to analytics cookies.</p>
+    <div class="cookie-actions">
+      <button class="btn ghost" id="cookie-decline" type="button">Decline</button>
+      <button class="btn primary" id="cookie-accept" type="button">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var banner = document.getElementById('cookie-banner');
+      var acceptBtn = document.getElementById('cookie-accept');
+      var declineBtn = document.getElementById('cookie-decline');
+      var stored = localStorage.getItem('arv_cookie_consent');
+
+      if (!stored) {
+        banner.classList.add('is-visible');
+      }
+
+      function setConsent(value) {
+        localStorage.setItem('arv_cookie_consent', value);
+        if (value === 'accepted') {
+          gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        } else {
+          gtag('consent', 'update', { 'analytics_storage': 'denied' });
+        }
+        banner.classList.remove('is-visible');
+      }
+
+      acceptBtn.addEventListener('click', function() {
+        setConsent('accepted');
+      });
+
+      declineBtn.addEventListener('click', function() {
+        setConsent('declined');
+      });
+    })();
+  </script>
+</body>
+</html>

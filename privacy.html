@@ -1,76 +1,255 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="light" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy | Arv Energy</title>
-  <meta name="description" content="Privacy policy for Arv Energy." />
-  <link rel="canonical" href="https://www.arv.energy/privacy.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="Privacy policy for Arv Energy."/>
+  <link rel="canonical" href="https://www.arv.energy/privacy.html"/>
+  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.arv.energy/privacy.html"/>
+  <meta property="og:title" content="Privacy Policy | Arv Energy"/>
+  <meta property="og:description" content="Privacy policy for Arv Energy."/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Privacy Policy | Arv Energy"/>
+  <meta name="twitter:description" content="Privacy policy for Arv Energy."/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      left: 20px; right: 20px; bottom: 20px;
+      background: #0f1f3a;
+      color: #f7f7f7;
+      border-radius: 0.5rem;
+      padding: 16px 20px;
+      box-shadow: 0 18px 40px rgba(15, 31, 58, 0.3);
+      display: none;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem;
+    }
+    .cookie-banner.is-visible { display: flex; }
+    .cookie-banner p { margin: 0; color: rgba(247,247,247,0.85); }
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .cookie-btn.primary { background: #aec7f6; color: #001b3d; border: none; }
+    .cookie-btn.primary:hover { background: #d6e3ff; }
+    .cookie-btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #f7f7f7; }
+    .cookie-btn.ghost:hover { border-color: rgba(255,255,255,0.6); }
+    @media (max-width: 640px) {
+      .cookie-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
-<body>
-  <div class="page">
-    <header class="wrap site-header">
-      <div class="brand">
-        <span class="brand-name">Arv Energy</span>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
 
-    <main>
-      <section class="wrap section" id="privacy">
-        <div class="section-header">
-          <h1>Privacy Policy</h1>
-          <p>Last updated: 2026-01-01</p>
-        </div>
-        <div class="card">
-          <h2>Overview</h2>
-          <p>This Privacy Policy explains how Arv Energy AS uses limited analytics to understand website traffic and improve the site experience.</p>
-
-          <h2>Data we collect</h2>
-          <p>We use Google Analytics to collect aggregated information about how visitors use the site. This includes page views, time on page, and general device and browser information. We do not knowingly collect sensitive personal data.</p>
-
-          <h2>Cookies and consent</h2>
-          <p>Analytics cookies are only enabled after you provide consent via the cookie banner. You can decline analytics at any time by clearing your browser storage for this site and choosing decline when prompted again.</p>
-
-          <h2>How we use data</h2>
-          <p>We use analytics data to understand traffic trends, improve content, and maintain site performance. We do not sell or share analytics data for advertising purposes.</p>
-
-          <h2>Third-party services</h2>
-          <p>Google Analytics processes data on our behalf. You can learn more about Google’s privacy practices at <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.</p>
-
-          <h2>Company details</h2>
-          <p>Arv Energy AS (Org. Nr.: 934996798)<br>Address: Nedre Varden 15, 4050 Sola, Norway</p>
-
-          <h2>Contact</h2>
-          <p>If you have questions about this policy, contact us at <a href="mailto:martin.hjelmeland@arv.energy">martin.hjelmeland@arv.energy</a>.</p>
-        </div>
-      </section>
-
-      <section class="wrap section" id="contact">
-        <div class="contact-card">
-          <div>
-            <h2>Contact</h2>
-            <p>Interested in learning more about what we do, please reach out.</p>
-          </div>
-          <div class="contact-actions">
-            <a class="btn primary" href="mailto:martin.hjelmeland@arv.energy?subject=Hello%20Arv%20Energy">martin.hjelmeland@arv.energy</a>
-            <a class="btn ghost" href="https://www.arv.energy/">www.arv.energy</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="wrap footer">
-      <p>&copy; 2026 Arv Energy</p>
-    </footer>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html">Home</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="nnc.html">NNC Concept</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="heritage.html">Heritage</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="resources.html">Resources</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html#contact">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-[#002147]" aria-label="Open menu" aria-expanded="false">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+    </button>
   </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-[#002147]" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<main class="pt-24">
+
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-8 py-12 md:py-20">
+  <div class="max-w-3xl">
+    <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-container mb-4 block">Legal</span>
+    <h1 class="text-3xl md:text-5xl font-bold font-headline tracking-tight text-primary mb-4">Privacy Policy</h1>
+    <p class="text-on-surface-variant text-sm">Last updated: 2026-01-01</p>
+  </div>
+</section>
+
+<!-- Content -->
+<section class="max-w-7xl mx-auto px-8 pb-20">
+  <div class="max-w-3xl space-y-10">
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Overview</h2>
+      <p class="text-on-surface-variant leading-relaxed">This Privacy Policy explains how Arv Energy AS uses limited analytics to understand website traffic and improve the site experience.</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Data we collect</h2>
+      <p class="text-on-surface-variant leading-relaxed">We use Google Analytics to collect aggregated information about how visitors use the site. This includes page views, time on page, and general device and browser information. We do not knowingly collect sensitive personal data.</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Cookies and consent</h2>
+      <p class="text-on-surface-variant leading-relaxed">Analytics cookies are only enabled after you provide consent via the cookie banner. You can decline analytics at any time by clearing your browser storage for this site and choosing decline when prompted again.</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">How we use data</h2>
+      <p class="text-on-surface-variant leading-relaxed">We use analytics data to understand traffic trends, improve content, and maintain site performance. We do not sell or share analytics data for advertising purposes.</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Third-party services</h2>
+      <p class="text-on-surface-variant leading-relaxed">Google Analytics processes data on our behalf. You can learn more about Google's privacy practices at <a href="https://policies.google.com/privacy" class="text-primary-container hover:underline" target="_blank">policies.google.com/privacy</a>.</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Company details</h2>
+      <p class="text-on-surface-variant leading-relaxed">Arv Energy AS (Org. Nr.: 934996798)<br>Nedre Varden 15, 4050 Sola, Norway</p>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold font-headline text-primary mb-3">Contact</h2>
+      <p class="text-on-surface-variant leading-relaxed">If you have questions about this policy, contact us at <a href="mailto:info@arv.energy" class="text-primary-container hover:underline">info@arv.energy</a>.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-[#f9f9f9]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-0">
+      <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;margin-bottom:8px;"></a>
+      <div class="text-slate-500 font-['Space_Grotesk'] text-xs uppercase tracking-widest">
+        &copy; <span class="copyright-year">2026</span> Arv Energy. All rights reserved.
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline"
+         href="privacy.html">Privacy Policy</a>
+      <button type="button" id="cookie-settings-btn" class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline bg-transparent border-none cursor-pointer">Cookie Settings</button>
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline"
+         href="mailto:info@arv.energy">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies for analytics to understand site traffic. <a href="privacy.html" style="color:#aec7f6;text-decoration:underline;">Privacy Policy</a></p>
+  <div class="cookie-actions">
+    <button class="cookie-btn ghost" id="cookie-decline" type="button">Decline</button>
+    <button class="cookie-btn primary" id="cookie-accept" type="button">Accept</button>
+  </div>
+</div>
+
+<!-- Cookie consent -->
+<script>
+(function () {
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var settingsBtn = document.getElementById('cookie-settings-btn');
+  var choice = localStorage.getItem('cookie-consent');
+
+  function show() { banner.classList.add('is-visible'); }
+  function hide() { banner.classList.remove('is-visible'); }
+
+  if (!choice) { show(); }
+  if (choice === 'accepted') {
+    if (typeof gtag === 'function') gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'accepted');
+    if (typeof gtag === 'function') gtag('consent', 'update', {'analytics_storage': 'granted'});
+    hide();
+  });
+  if (declineBtn) declineBtn.addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'declined');
+    hide();
+  });
+  if (settingsBtn) settingsBtn.addEventListener('click', function () {
+    localStorage.removeItem('cookie-consent');
+    show();
+  });
+})();
+</script>
+
+<!-- Mobile menu -->
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+
+<!-- Auto copyright year -->
+<script>
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+
 </body>
 </html>

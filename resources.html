@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resources | ARV Energy</title>
+<meta name="description" content="Technical resources, documentation, and strategic intelligence from ARV Energy."/>
+<link rel="canonical" href="https://www.arv.energy/resources.html"/>
+<link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.arv.energy/resources.html"/>
+<meta property="og:title" content="Resources | ARV Energy"/>
+<meta property="og:description" content="Technical resources, documentation, and strategic intelligence from ARV Energy."/>
+<meta property="og:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Resources | ARV Energy"/>
+<meta name="twitter:description" content="Technical resources, documentation, and strategic intelligence from ARV Energy."/>
+<meta name="twitter:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<style>
+  body { font-family: 'Space Grotesk', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  /* EmailOctopus form override — match dark navy column */
+  .eo-wrapper .emailoctopus-form-wrapper { padding: 0 !important; background: transparent !important; }
+  .eo-wrapper .emailoctopus-form { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+  .eo-wrapper .emailoctopus-form-row { margin-bottom: 12px !important; }
+  .eo-wrapper input[type="email"],
+  .eo-wrapper input[type="text"] {
+    width: 100% !important; background: rgba(255,255,255,0.1) !important;
+    border: none !important; border-radius: 2px !important;
+    padding: 12px 16px !important; font-size: 0.875rem !important;
+    color: #ffffff !important; font-family: 'Space Grotesk', sans-serif !important;
+    outline: none !important; box-shadow: none !important;
+  }
+  .eo-wrapper input::placeholder { color: rgba(255,255,255,0.35) !important; }
+  .eo-wrapper button[type="submit"],
+  .eo-wrapper input[type="submit"] {
+    width: 100% !important; background: #ffffff !important; color: #000a1e !important;
+    border: none !important; border-radius: 2px !important;
+    padding: 12px 16px !important; font-size: 0.7rem !important; font-weight: 700 !important;
+    text-transform: uppercase !important; letter-spacing: 0.12em !important;
+    font-family: 'Space Grotesk', sans-serif !important; cursor: pointer !important;
+  }
+  .eo-wrapper button[type="submit"]:hover { background: #e8e8e8 !important; }
+  .eo-wrapper .emailoctopus-success-message,
+  .eo-wrapper .emailoctopus-error-message { font-family: 'Space Grotesk', sans-serif !important; font-size: 0.8rem !important; color: rgba(255,255,255,0.9) !important; }
+  .eo-wrapper p, .eo-wrapper label { color: rgba(255,255,255,0.6) !important; font-family: 'Space Grotesk', sans-serif !important; font-size: 0.75rem !important; }
+  .eo-wrapper *, .eo-wrapper *::after, .eo-wrapper *::before { color: inherit; }
+  .eo-wrapper h1, .eo-wrapper h2, .eo-wrapper h3, .eo-wrapper h4,
+  .eo-wrapper span, .eo-wrapper div { color: rgba(255,255,255,0.9) !important; font-family: 'Space Grotesk', sans-serif !important; }
+</style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+  <div class="hidden md:flex items-center space-x-8">
+    <a class="text-slate-600 hover:text-[#002147] transition-colors text-sm font-medium tracking-tight" href="index.html">Home</a>
+    <a class="text-slate-600 hover:text-[#002147] transition-colors text-sm font-medium tracking-tight" href="nnc.html">NNC Concept</a>
+    <a class="text-slate-600 hover:text-[#002147] transition-colors text-sm font-medium tracking-tight" href="heritage.html">Heritage</a>
+    <a class="text-[#002147] border-b-2 border-[#002147] pb-1 text-sm font-medium tracking-tight" href="resources.html">Resources</a>
+    <a class="text-slate-600 hover:text-[#002147] transition-colors text-sm font-medium tracking-tight" href="index.html#contact">Contact</a>
+  </div>
+  <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-[#002147]" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+  </button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-[#002147]" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-[#002147] font-bold" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<main class="pt-24 pb-20">
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-8 mb-16">
+  <div class="flex flex-col md:flex-row items-end justify-between gap-8 py-12 border-b border-outline-variant/20">
+    <div class="max-w-2xl">
+      <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mb-4 block">Knowledge Center</span>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-primary leading-none mb-6">
+        Technical Resources &amp;<br/>Strategic Intelligence.
+      </h1>
+      <p class="text-lg text-on-surface-variant max-w-lg">
+        Access our library of engineering references, industry insights, and nuclear energy related documents.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Documentation -->
+<section class="max-w-7xl mx-auto px-8 mb-24">
+  <div class="flex items-center justify-between mb-8">
+    <h2 class="text-2xl font-bold tracking-tight text-primary">Technical Documentation</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <a href="nuclear-epc-market.html" class="bg-surface-container-low p-8 flex flex-col justify-between h-80 group hover:bg-surface-container transition-colors duration-300">
+      <div>
+        <div class="bg-primary-container text-white w-fit px-2 py-1 text-[10px] font-bold tracking-widest uppercase mb-6">Report</div>
+        <h3 class="text-xl font-bold text-primary leading-tight mb-4 group-hover:underline underline-offset-4">Nuclear EPC<br/>Market Analysis</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Overview of the global nuclear EPC landscape and the opportunity created by the COP28 tripling pledge.</p>
+      </div>
+      <span class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest">
+        Read Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </span>
+    </a>
+    <a href="competence-transfer.html" class="bg-surface-container-low p-8 flex flex-col justify-between h-80 group hover:bg-surface-container transition-colors duration-300">
+      <div>
+        <div class="bg-primary-container text-white w-fit px-2 py-1 text-[10px] font-bold tracking-widest uppercase mb-6">Report</div>
+        <h3 class="text-xl font-bold text-primary leading-tight mb-4 group-hover:underline underline-offset-4">Oil &amp; Gas<br/>Competence Transfer</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">How decades of offshore EPC experience translate into nuclear construction capability.</p>
+      </div>
+      <span class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest">
+        Read Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </span>
+    </a>
+    <div class="bg-surface-container-low p-8 flex flex-col justify-between h-80 group hover:bg-surface-container transition-colors duration-300">
+      <div>
+        <div class="bg-primary-container text-white w-fit px-2 py-1 text-[10px] font-bold tracking-widest uppercase mb-6">Coming Soon</div>
+        <h3 class="text-xl font-bold text-primary leading-tight mb-4">NNC Concept<br/>Technical Overview</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Architectural overview of the Nordic Nuclear Construction concept and its modular assembly approach.</p>
+      </div>
+      <span class="flex items-center gap-2 text-on-surface-variant font-bold text-xs uppercase tracking-widest">
+        In Preparation <span class="material-symbols-outlined text-sm">schedule</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Resources -->
+<section class="max-w-7xl mx-auto px-8 mb-24">
+  <div class="space-y-10">
+
+    <!-- In the News -->
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="text-[0.6rem] font-black uppercase tracking-widest text-on-surface-variant">In the News</span>
+        <div class="flex-1 h-px bg-outline-variant"></div>
+      </div>
+      <div class="space-y-1">
+
+        <a href="https://www.aftenbladet.no/meninger/debatt/i/8pJ6Jw/kjernekraft-hva-er-spoersmaalet" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Aftenbladet</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Mar 2026</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Staten må ta sin del av ansvaret for å realisere kjernekraft</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Market forces alone cannot build nuclear plants in Norway — Hjelmeland and Valsdottir argue the state must play an active role for nuclear energy to materialise.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://www.aftenbladet.no/okonomi/i/LMRa1P/martin-hjelmeland-om-norsk-kjernekraft" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Aftenbladet</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Jun 2025</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">En Kjernekraftkar</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Hjelmeland moved from the hydropower industry to nuclear energy, and the public sentiment in Norway is steadily shifting as well.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://www.aftenbladet.no/meninger/debatt/i/Rzw68O/hvordan-norge-kan-utnytte-sin-kompetanse-innen-kjernekraft" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Aftenbladet</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Mar 2025</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Hvordan Norge kan utnytte sin kompetanse innen kjernekraft</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Norway should leverage its oil and gas shipyard expertise to pioneer modular nuclear construction, positioning the country as an innovation leader.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://energiwatch.no/debatt/article18655845.ece" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Energiwatch</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· 2025</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Norges mulighet er å kobles på et nordisk kjernekraftprogram</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Opinion piece in Norway's leading energy industry publication on the role Norwegian industry could play in the global nuclear buildout.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://www.aftenbladet.no/okonomi/i/al3brE/boreteknologi-for-atomavfallslagring" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Aftenbladet</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Oct 2024</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Boreteknologi fra oljebransjen er en potensiell joker for atomavfallslagring</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Drilling technology from the Norwegian oil industry as a candidate method for long-term nuclear waste storage — potentially more economical than approaches used in Sweden and Finland.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://www.aftenbladet.no/meninger/debatt/i/Gyrekl/kjernekraft-norsk-kompetanse-og-teknologi-innen-oljebransjen-kan-spille-en-viktig-rolle-i-aa-fremme-kjernekraft" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Aftenbladet</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Aug 2024</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Norsk O&amp;G-kompetanse kan spille en viktig rolle i å fremme kjernekraft</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Norway's nuclear research created significant value in the oil industry — Hjelmeland asks whether the flow of expertise can now go in reverse.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Reports & Analysis -->
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="text-[0.6rem] font-black uppercase tracking-widest text-on-surface-variant">Reports &amp; Analysis</span>
+        <div class="flex-1 h-px bg-outline-variant"></div>
+      </div>
+      <div class="space-y-1">
+
+        <a href="https://crayonconsulting.no/vev/kjernekraftinorge" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Crayon Consulting</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· 2024</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Ekspertrapport: Etablering av kjernekraft i Norge</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">PhD-level analysis by Vala Maria Valsdottir examining the possibilities and challenges of establishing nuclear power in Norway — covering policy, economics, and regulatory prerequisites.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://www.ntva.no/innsikt/artikler/kapittel-19-kjernekraft-i-norge" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">NTVA</span>
+              <span class="text-[0.6rem] text-on-surface-variant/40">· Nov 2023</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Kjernekraft i Norge? — Norwegian Academy of Technological Sciences</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">NTVA chapter analysing whether nuclear power belongs in Norway's energy future, comparing safety, land use, carbon footprint and economics against renewables.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- History & Context -->
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="text-[0.6rem] font-black uppercase tracking-widest text-on-surface-variant">History &amp; Context</span>
+        <div class="flex-1 h-px bg-outline-variant"></div>
+      </div>
+      <div class="space-y-1">
+
+        <a href="https://ife.no/atomanlegg/ife-atomhistorie/" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">IFE — Institute for Energy Technology</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">IFE's Atomic History</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">The full history of Norwegian nuclear research at IFE — from the JEEP-1 reactor in 1951 through the Halden research programme — and how this expertise fed into the North Sea industry.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+        <a href="https://youtu.be/1rW2ZynlazI?si=npvICq2iYifrdQO4" target="_blank" rel="noopener"
+           class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">YouTube</span>
+              <span class="material-symbols-outlined text-on-surface-variant/40 ml-0.5" style="font-size:0.7rem;">play_circle</span>
+            </div>
+            <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">Norwegian nuclear history and lessons applied in the O&amp;G industry</h3>
+            <p class="text-xs text-on-surface-variant leading-snug">Video documentary tracing how Norwegian nuclear knowledge — built through IFE's research reactors — was transferred to and shaped the offshore oil and gas industry.</p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Listen -->
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="text-[0.6rem] font-black uppercase tracking-widest text-on-surface-variant">Listen</span>
+        <div class="flex-1 h-px bg-outline-variant"></div>
+      </div>
+
+      <a href="https://open.spotify.com/episode/4Bx3VwuBRpEIAFUtIhByWt" target="_blank" rel="noopener"
+         class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Teknisk sett</span>
+            <span class="text-[0.6rem] text-on-surface-variant/40">· Spotify · Oct 2025</span>
+          </div>
+          <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">TekniskSett: Erfaring offshore kan hjelpe ny norsk kjernekraft</h3>
+          <p class="text-xs text-on-surface-variant leading-snug">Hjelmeland (Arv Energy) and Atle Blomgren (Norce) discuss how technology transfer from the oil industry can enable new Norwegian nuclear power, arguing the Nordic region collectively holds the expertise needed.</p>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+      </a>
+
+      <a href="https://youtu.be/8neTp4kUjpE?si=zOOtfRyCGKjCB1ce" target="_blank" rel="noopener"
+         class="group flex items-start gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[0.6rem] font-bold uppercase tracking-wider text-primary-container">Fire2Fission</span>
+            <span class="text-[0.6rem] text-on-surface-variant/40">· Youtube · Sept 2024</span>
+          </div>
+          <h3 class="font-semibold text-primary text-sm mb-1 leading-snug group-hover:underline underline-offset-2">From Oil and Gas to Nuclear at ONS in Stavanger, Norway</h3>
+          <p class="text-xs text-on-surface-variant leading-snug">Discussion during the ONS2024 conference with O&amp;G business leaders and experts for the opportunity of leveraging their competence towards nuclear energy.</p>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant/25 group-hover:text-primary-container transition-colors flex-shrink-0 mt-0.5" style="font-size:0.95rem;">open_in_new</span>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-20 bg-primary">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Stay Informed</span>
+        <h2 class="text-2xl md:text-4xl font-bold font-headline text-white leading-[1.1] mb-4">
+          Nuclear market updates.<br/>No noise.
+        </h2>
+        <p class="text-white/60 leading-relaxed">
+          Occasional updates on the nuclear construction market, Industry developments, and Arv Energy progress.
+        </p>
+      </div>
+      <div class="eo-wrapper">
+        <script async src="https://eocampaign1.com/form/a533fabc-2a70-11f1-b558-cbac5ffe20f1.js" data-form="a533fabc-2a70-11f1-b558-cbac5ffe20f1"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-[#f9f9f9]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto w-full">
+    <div class="mb-8 md:mb-0">
+      <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;margin-bottom:8px;"></a>
+      <p class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500">&copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline" href="privacy.html">Privacy Policy</a>
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="w-full h-1 bg-primary-container"></div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>

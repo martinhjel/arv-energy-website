@@ -1,110 +1,1195 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="light" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arv Energy</title>
-  <meta name="description" content="ARV Energy develops modern nuclear plant concepts to deliver reliable, clean power for long-term resilience." />
-  <link rel="canonical" href="https://www.arv.energy/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml">
-  <!-- Google tag (gtag.js) -->
+  <meta name="description" content="ARV Energy develops modern nuclear plant concepts to deliver reliable, clean power for long-term resilience."/>
+  <link rel="canonical" href="https://www.arv.energy/"/>
+  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.arv.energy/"/>
+  <meta property="og:title" content="Arv Energy"/>
+  <meta property="og:description" content="ARV Energy develops modern nuclear plant concepts to deliver reliable, clean power for long-term resilience."/>
+  <meta property="og:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Arv Energy"/>
+  <meta name="twitter:description" content="ARV Energy develops modern nuclear plant concepts to deliver reliable, clean power for long-term resilience."/>
+  <meta name="twitter:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Leaflet (world map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2E1GCP7S7Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('consent', 'default', {
-      'analytics_storage': 'denied'
-    });
+    gtag('consent', 'default', {'analytics_storage': 'denied'});
     gtag('config', 'G-2E1GCP7S7Z');
   </script>
-  <link rel="stylesheet" href="assets/styles.css" />
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      left: 20px; right: 20px; bottom: 20px;
+      background: #0f1f3a;
+      color: #f7f7f7;
+      border-radius: 0.5rem;
+      padding: 16px 20px;
+      box-shadow: 0 18px 40px rgba(15, 31, 58, 0.3);
+      display: none;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem;
+    }
+    .cookie-banner.is-visible { display: flex; }
+    .cookie-banner p { margin: 0; color: rgba(247,247,247,0.85); }
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .cookie-btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .cookie-btn.primary { background: #aec7f6; color: #001b3d; border: none; }
+    .cookie-btn.primary:hover { background: #d6e3ff; }
+    .cookie-btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #f7f7f7; }
+    .cookie-btn.ghost:hover { border-color: rgba(255,255,255,0.6); }
+    @media (max-width: 640px) {
+      .cookie-banner { flex-direction: column; align-items: flex-start; }
+    }
+    /* Leaflet map — strip chrome so it bleeds into the page */
+    #epcMap { background: #f0f4f8; }
+    .leaflet-control-zoom { display: none; }
+    .leaflet-control-attribution { font-size: 9px !important; opacity: 0.45; }
+
+    /* Permanent callout labels */
+    .epc-callout {
+      background: #000a1e !important;
+      border: 1px solid rgba(174,199,246,0.22) !important;
+      border-radius: 3px !important;
+      padding: 4px 8px !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 12px rgba(0,10,30,0.28) !important;
+      pointer-events: none !important;
+      white-space: nowrap !important;
+    }
+    @media (max-width: 639px) {
+      .epc-callout { padding: 2px 4px !important; }
+      .epc-map-height { height: 300px; }
+    }
+    @media (min-width: 640px) {
+      .epc-map-height { height: 420px; }
+    }
+    /* Arrow connectors matching the dark bg */
+    .epc-callout.leaflet-tooltip-top::before    { border-top-color:    #000a1e !important; }
+    .epc-callout.leaflet-tooltip-bottom::before { border-bottom-color: #000a1e !important; }
+    .epc-callout.leaflet-tooltip-left::before   { border-left-color:   #000a1e !important; }
+    .epc-callout.leaflet-tooltip-right::before  { border-right-color:  #000a1e !important; }
+
+    /* Hover detail tooltip (minor EPCs) */
+    .epc-detail {
+      background: #ffffff;
+      border: 1px solid #c4c6cf;
+      border-radius: 6px;
+      padding: 10px 12px;
+      box-shadow: 0 8px 30px rgba(0,33,71,0.12);
+      pointer-events: none;
+      white-space: normal;
+    }
+    .epc-detail::before { display: none; }
+  /* EmailOctopus — dark navy context */
+  .eo-wrapper-index .emailoctopus-form-wrapper { padding: 0 !important; background: transparent !important; }
+  .eo-wrapper-index .emailoctopus-form { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+  .eo-wrapper-index .emailoctopus-form-row { margin-bottom: 12px !important; }
+  .eo-wrapper-index input[type="email"], .eo-wrapper-index input[type="text"] {
+    width: 100% !important; background: rgba(255,255,255,0.1) !important; border: none !important;
+    border-radius: 2px !important; padding: 12px 16px !important; font-size: 0.875rem !important;
+    color: #fff !important; font-family: 'Space Grotesk', sans-serif !important; outline: none !important; box-shadow: none !important;
+  }
+  .eo-wrapper-index input::placeholder { color: rgba(255,255,255,0.35) !important; }
+  .eo-wrapper-index button[type="submit"], .eo-wrapper-index input[type="submit"] {
+    width: 100% !important; background: #ffffff !important; color: #000a1e !important; border: none !important;
+    border-radius: 2px !important; padding: 12px 16px !important; font-size: 0.7rem !important;
+    font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.12em !important;
+    font-family: 'Space Grotesk', sans-serif !important; cursor: pointer !important;
+  }
+  .eo-wrapper-index button[type="submit"]:hover { background: #e8e8e8 !important; }
+  .eo-wrapper-index h1, .eo-wrapper-index h2, .eo-wrapper-index h3,
+  .eo-wrapper-index p, .eo-wrapper-index span, .eo-wrapper-index div,
+  .eo-wrapper-index label { color: rgba(255,255,255,0.9) !important; font-family: 'Space Grotesk', sans-serif !important; }
+  </style>
 </head>
-<body>
-  <div class="page">
-    <header class="wrap site-header">
-      <div class="brand">
-        <span class="brand-name">Arv Energy</span>
-      </div>
-      <nav class="nav">
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
 
-    <main>
-      <section class="hero wrap" id="top">
-        <div class="hero-content stagger">
-          <h1>Arv Energy</h1>
-          <p class="lead">Arv Energy is innovating nuclear power plant design for constructability, leveraging the Norwegian offshore industry to deliver clean, reliable energy for generations to come.</p>
-          <div class="actions">
-            <a class="btn primary" href="mailto:martin.hjelmeland@arv.energy?subject=Hello%20Arv%20Energy">Get in touch</a>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <img src="assets/Vertical-white-text.svg" alt="Arv Energy logo" class="hero-logo" />
-        </div>
-      </section>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-headline text-sm font-medium tracking-tight text-[#002147] border-b-2 border-[#002147] pb-1" href="index.html">Home</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="nnc.html">NNC Concept</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="heritage.html">Heritage</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="resources.html">Resources</a>
+      <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="#contact">Contact</a>
+    </div>
+    <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-[#002147]" aria-label="Open menu" aria-expanded="false">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+    </button>
+  </div>
+</nav>
 
-      <section class="wrap section" id="contact">
-        <div class="contact-card">
-          <div>
-            <h2>Let’s build the next generation of nuclear infrastructure.</h2>
-            <p>Interested in learning more about what we do, please reach out.</p>
-          </div>
-          <div class="contact-actions">
-            <a class="btn primary" href="mailto:martin.hjelmeland@arv.energy?subject=Hello%20Arv%20Energy">martin.hjelmeland@arv.energy</a>
-            <a class="btn ghost" href="https://www.arv.energy/">www.arv.energy</a>
-          </div>
-        </div>
-      </section>
-    </main>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-[#002147]" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-[#002147]" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="#contact">Contact</a>
+  </div>
+</div>
 
-    <footer class="wrap footer">
-      <p>&copy; 2026 Arv Energy · <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface">
+
+  <!-- O&G platform background image — drop assets/hero-platform.jpg to activate -->
+  <div class="absolute inset-y-0 right-0 w-full lg:w-[62%] pointer-events-none select-none">
+    <img src="assets/hero-platform.png"
+         alt="Offshore oil and gas platform"
+         class="w-full h-full object-cover object-center"/>
+    <!-- Fade: solid surface colour on the left, transparent on the right -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to right, #f9f9f9 0%, #f9f9f9 8%, rgba(249,249,249,0.88) 28%, rgba(249,249,249,0.25) 58%, transparent 100%);"></div>
   </div>
 
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-    <p>We use cookies for analytics to understand site traffic. By clicking accept, you consent to analytics cookies.</p>
-    <div class="cookie-actions">
-      <button class="btn ghost" id="cookie-decline" type="button">Decline</button>
-      <button class="btn primary" id="cookie-accept" type="button">Accept</button>
+  <!-- Content -->
+  <div class="max-w-7xl mx-auto px-8 w-full relative z-10">
+    <div class="max-w-[560px] lg:max-w-[720px]">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-sm mb-6">
+        <span class="w-2 h-2 bg-primary-container rounded-full"></span>
+        <span class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant">Nuclear Construction Innovation</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold font-headline leading-[1.1] tracking-tight text-primary mb-8">
+        A New Approach to<br/>
+        <span class="text-primary-container">Building Nuclear Energy</span>
+      </h1>
+      <p class="text-lg text-on-surface-variant mb-10 leading-relaxed">
+        Arv Energy is innovating nuclear power plant design for constructability, leveraging Norwegian offshore industry expertise to deliver reliable, clean energy for generations to come.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact"
+           class="bg-primary-container text-on-primary px-8 py-4 rounded-md font-bold text-sm tracking-wide uppercase flex items-center gap-2 hover:brightness-110 transition-all">
+          Get in Touch
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a href="#market-context"
+           class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-md font-bold text-sm tracking-wide uppercase hover:bg-primary-container/5 transition-colors">
+          Background
+        </a>
+      </div>
     </div>
   </div>
+</section>
 
-  <script>
-    (function() {
-      var banner = document.getElementById('cookie-banner');
-      var acceptBtn = document.getElementById('cookie-accept');
-      var declineBtn = document.getElementById('cookie-decline');
-      var stored = localStorage.getItem('arv_cookie_consent');
+<!-- Nuclear Buildout Context Section -->
+<section id="market-context" class="py-24 bg-primary text-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Background</span>
+      <h2 class="text-4xl font-bold font-headline tracking-tight mb-4">The Nuclear Build-Up Challenge</h2>
+      <p class="text-white/70 max-w-2xl leading-relaxed">
+        At COP28, world leaders pledged to triple nuclear capacity to ~1,200 GW by 2050. Delivering on this requires building at twice the pace of history's fastest sustained nuclear expansion. This creates extraordinary opportunities for new entrants in the nuclear EPC domain, and a construction approach that can deliver.
+      </p>
+    </div>
 
-      if (!stored) {
-        banner.classList.add('is-visible');
-      }
+    <!-- Chart container -->
+    <div class="relative bg-white/5 rounded-xl p-4 md:p-8 mb-8 border border-white/10 overflow-hidden" style="max-width:100%;">
+      <div style="position:relative;width:100%;">
+        <canvas id="nuclearChart"></canvas>
+      </div>
+    </div>
 
-      function setConsent(value) {
-        localStorage.setItem('arv_cookie_consent', value);
-        if (value === 'accepted') {
-          gtag('consent', 'update', { 'analytics_storage': 'granted' });
-        } else {
-          gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    <!-- Context note -->
+    <div class="bg-white/5 border border-white/10 rounded-lg p-5 mb-10">
+      <p class="text-white/65 text-sm leading-relaxed">
+        <span class="text-primary-fixed-dim font-semibold">Note:</span>
+        The 1970s buildout started from a tiny base (~33 GWe) with simple early reactor designs.
+        Today the fleet is already ~10× larger in absolute terms, meaning supply chains, workforce, and manufacturing capacity must also scale ~2× faster than they ever have.
+        This creates a massive opportunity for new entrants in the nuclear EPC domain with a construction design ready to scale.
+      </p>
+    </div>
+
+    <!-- Key stat cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+        <div class="text-3xl font-bold font-headline text-primary-fixed-dim mb-1">16.4 GWe/yr</div>
+        <div class="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Peak Historical Rate · 1972–1989</div>
+        <p class="text-white/60 text-sm leading-relaxed">The fastest sustained nuclear buildout ever achieved, starting from a ~33 GWe base with early reactor designs.</p>
+      </div>
+      <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+        <div class="text-3xl font-bold font-headline text-primary-fixed-dim mb-1">32.9 GWe/yr</div>
+        <div class="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Required Rate · 2025–2050</div>
+        <p class="text-white/60 text-sm leading-relaxed">Needed to reach 1,200 GWe by 2050 — exactly 2× the historical peak rate, from a 10× larger starting base.</p>
+      </div>
+      <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+        <div class="text-3xl font-bold font-headline text-primary-fixed-dim mb-1">~2×</div>
+        <div class="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Supply Chain Scale Required</div>
+        <p class="text-white/60 text-sm leading-relaxed">Supply chains, workforce, and manufacturing must all grow faster than in the 1970s, creating a massive demand for EPC competence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nuclear EPC Landscape Section -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+
+    <!-- Section header -->
+    <div class="mb-14">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-container mb-4 block">Industry Landscape</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+        <div>
+          <h2 class="text-4xl font-bold font-headline tracking-tight text-primary mb-4">The Nuclear EPC Landscape</h2>
+          <div class="h-1 w-20 bg-primary-container mb-6"></div>
+          <p class="text-on-surface-variant leading-relaxed">
+            The world has built <span class="font-semibold text-primary">~400 GWe of nuclear capacity</span> over 70 years — by a small group of specialist contractors. The COP28 tripling pledge requires <span class="font-semibold text-primary">~800 GWe of new capacity</span> in just 25 years — roughly <span class="font-semibold text-primary">double the peak historical build rate</span> (1972–1989), sustained for a quarter century. Even if every existing nuclear EPC replicates its entire historical deployments, they will only cover <span class="font-semibold text-primary">~57%</span> of that target.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="text-center p-5 bg-surface-container-low rounded-lg">
+            <div class="text-2xl font-bold font-headline text-primary mb-1">~400 GWe</div>
+            <div class="text-[0.6rem] font-bold uppercase tracking-widest text-on-surface-variant">Built in 70 years</div>
+          </div>
+          <div class="text-center p-5 bg-surface-container-low rounded-lg">
+            <div class="text-2xl font-bold font-headline text-primary-container mb-1">~800 GWe</div>
+            <div class="text-[0.6rem] font-bold uppercase tracking-widest text-on-surface-variant">New build needed</div>
+          </div>
+          <div class="text-center p-5 bg-amber-50 rounded-lg border border-amber-200">
+            <div class="text-2xl font-bold font-headline text-amber-700 mb-1">345 GWe</div>
+            <div class="text-[0.6rem] font-bold uppercase tracking-widest text-amber-600">Open market gap</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map + Pie chart + Callout -->
+    <div class="mb-16">
+
+      <!-- Full-width world map -->
+      <div class="mb-10">
+        <h3 class="text-base font-bold font-headline text-primary mb-1">Global EPC Presence</h3>
+        <p class="text-xs text-on-surface-variant mb-3">Hover markers to see company details. Circle size = historical GWe built.</p>
+        <div id="epcMap" class="w-full rounded-xl overflow-hidden epc-map-height"></div>
+        <p class="text-[0.6rem] text-on-surface-variant/60 mt-2">Source: IAEA PRIS, WNA, company reports. Compiled March 2026.</p>
+      </div>
+
+      <!-- Pie chart (left) + 345 GWe callout (right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+        <!-- Pie chart: 5 cols -->
+        <div class="lg:col-span-5 flex flex-col">
+          <h3 class="text-base font-bold font-headline text-primary mb-1">Share of ~800 GWe New Build Target</h3>
+          <p class="text-xs text-on-surface-variant mb-4">If each EPC replicates its entire historical build once more by 2050.</p>
+          <div class="flex-1 flex items-center justify-center bg-surface-container-low rounded-xl p-4">
+            <canvas id="epcPieChart" style="max-height:320px;"></canvas>
+          </div>
+        </div>
+
+        <!-- 345 GWe opportunity callout: 7 cols -->
+        <div class="lg:col-span-7 bg-primary rounded-xl p-6 md:p-10 text-white flex flex-col justify-between">
+          <div>
+            <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-6 block">Market Opportunity</span>
+
+            <!-- Headline number -->
+            <div class="mb-5">
+              <span class="text-[3.5rem] md:text-[5.5rem] font-black font-headline tracking-tighter leading-none" style="color:#f5b800;">345</span>
+              <span class="text-3xl font-bold text-white/80 ml-2">GWe</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 leading-snug">
+              Open market for new<br/>nuclear EPC entrants
+            </h3>
+            <p class="text-white/65 text-sm leading-relaxed mb-8">
+              Even if every established nuclear EPC contractor replicates its <em>entire</em> construction history within the next 25 years, the world still falls <strong class="text-white">345 GWe short</strong> of the COP28 tripling target. That gap must be filled by someone.
+            </p>
+
+            <!-- Progress bar: 57% established / 43% open -->
+            <div class="mb-8">
+              <div class="flex justify-between text-[0.6rem] font-bold uppercase tracking-widest mb-2">
+                <span class="text-primary-fixed-dim">Established EPCs — 458 GWe (57%)</span>
+                <span style="color:#f5b800;">Gap — 345 GWe (43%)</span>
+              </div>
+              <div class="h-2.5 rounded-full overflow-hidden flex" style="background:rgba(255,255,255,0.1);">
+                <div class="h-full rounded-l-full" style="width:57%;background:#aec7f6;"></div>
+                <div class="h-full rounded-r-full" style="width:43%;background:#f5b800;"></div>
+              </div>
+            </div>
+
+            <!-- Bullets -->
+            <ul class="space-y-4">
+              <li class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-sm mt-0.5 shrink-0" style="color:#f5b800;">arrow_forward</span>
+                <span class="text-white/70 text-sm leading-relaxed">Western nuclear EPCs face structural capability gaps — <strong class="text-white">decades of dormancy have eroded workforce and supply chains</strong></span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-sm mt-0.5 shrink-0" style="color:#f5b800;">arrow_forward</span>
+                <span class="text-white/70 text-sm leading-relaxed">New entrants — O&amp;G EPCs, modular specialists, new national programmes — are <strong class="text-white">essential, not optional</strong></span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="material-symbols-outlined text-sm mt-0.5 shrink-0" style="color:#f5b800;">arrow_forward</span>
+                <span class="text-white/70 text-sm leading-relaxed">This is a <strong class="text-white">generational entry window</strong> — the nuclear EPC market is structurally open for the first time in 40 years</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-4">
+            <a href="nnc.html"
+               class="inline-flex items-center gap-2 bg-white text-primary font-bold text-sm tracking-wide uppercase px-6 py-3 rounded-md hover:bg-surface-container-highest transition-colors">
+              Explore our approach to construction
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="nuclear-epc-market.html"
+               class="inline-flex items-center gap-2 border border-white/30 text-white font-bold text-sm tracking-wide uppercase px-6 py-3 rounded-md hover:bg-white/10 transition-colors">
+              Explore our EPC Market report
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- The Opportunities for O&G EPCs -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+  <div class="max-w-7xl mx-auto px-8">
+
+    <!-- Header -->
+    <div class="mb-14">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Industry Opportunity</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-headline tracking-tight leading-[1.05] text-primary">
+          The Opportunities<br/>for O&amp;G EPCs
+        </h2>
+        <div>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-3">
+            Nuclear's capacity problem isn't a technology problem — it's a <strong class="text-primary">construction problem</strong>, in which O&amp;G EPCs has the supply chains and much of competences needed.
+          </p>
+          <p class="text-on-surface-variant text-sm leading-relaxed">
+            The gap isn't capability — it's qualification. Delivering multi-discipline projects in the $10s under extreme schedule and safety pressure is something O&amp;G companies do every day.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capability pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white rounded-xl border border-outline-variant p-7 flex flex-col gap-5">
+        <span class="material-symbols-outlined text-primary-container" style="font-size:2rem;">architecture</span>
+        <div>
+          <h3 class="text-[0.7rem] font-black uppercase tracking-widest text-primary mb-2">Megaprojects</h3>
+          <p class="text-sm text-on-surface-variant leading-snug">Managing multi-billion dollar timelines with precision logistics and risk mitigation protocols.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant p-7 flex flex-col gap-5">
+        <span class="material-symbols-outlined text-primary-container" style="font-size:2rem;">precision_manufacturing</span>
+        <div>
+          <h3 class="text-[0.7rem] font-black uppercase tracking-widest text-primary mb-2">Modular Construction</h3>
+          <p class="text-sm text-on-surface-variant leading-snug">Off-site fabrication and yard-based assembly models perfected in offshore construction.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant p-7 flex flex-col gap-5">
+        <span class="material-symbols-outlined text-primary-container" style="font-size:2rem;">verified_user</span>
+        <div>
+          <h3 class="text-[0.7rem] font-black uppercase tracking-widest text-primary mb-2">Safety Culture</h3>
+          <p class="text-sm text-on-surface-variant leading-snug">Migrating 'Zero Harm' offshore mindsets to stringent nuclear quality assurance requirements.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant p-7 flex flex-col gap-5">
+        <span class="material-symbols-outlined text-primary-container" style="font-size:2rem;">hub</span>
+        <div>
+          <h3 class="text-[0.7rem] font-black uppercase tracking-widest text-primary mb-2">Supply Chain</h3>
+          <p class="text-sm text-on-surface-variant leading-snug">Utilizing existing high-spec supply corridors for non-nuclear safety component sourcing.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Arv Energy: Bridging Two Industries -->
+<section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+      <!-- Left: narrative -->
+      <div class="lg:col-span-5">
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-container mb-4 block">Our Approach</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-headline text-primary mb-6 leading-[1.05]">
+          Bridging<br/>Two Industries
+        </h2>
+        <p class="text-on-surface-variant leading-relaxed mb-4 text-lg">
+          We're taking a nuclear plant construction approach that the O&amp;G industry can build, not one it has to adapt to.
+        </p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">
+          The NNC concept combines offshore fabrication logic with proven reactor technology, using Nordic yards as the production backbone. Same workforce and proven methods in a new domain.
+        </p>
+      </div>
+
+      <!-- Right: three feature cards -->
+      <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="bg-white rounded-xl p-6 border-l-4 border-primary-container shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-2xl text-primary-container shrink-0 mt-0.5">view_quilt</span>
+            <div>
+              <h4 class="font-bold font-headline text-primary mb-1">O&amp;G-Native Construction Logic</h4>
+              <p class="text-sm text-on-surface-variant leading-snug">Modules fabricated in yards in parallel to required civil construction on-site, shrinking the construction window. Modules are then barged and heavy-lifted to site.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-primary-container shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-2xl text-primary-container shrink-0 mt-0.5">water</span>
+            <div>
+              <h4 class="font-bold font-headline text-primary mb-1">The Nordic Coastal Advantage</h4>
+              <p class="text-sm text-on-surface-variant leading-snug">The Nordics have deep-water yards, heavy-lift capacity, and an industrial workforce that already builds large offshore &amp; onshore structures. Paired with the coastal nuclear power plant sites that infrastructure is the backbone of the NNC concept.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-primary-container shadow-sm">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-2xl text-primary-container shrink-0 mt-0.5">verified</span>
+            <div>
+              <h4 class="font-bold font-headline text-primary mb-1">Proven Reactor Technology</h4>
+              <p class="text-sm text-on-surface-variant leading-snug">We value conventional, reactor designs that leverages economics of scale, ensuring nuclear energy can live up to its promise of a cheap, abundant and clean energy source. The innovation is in how we build, not what we build.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Button below cards -->
+    <div class="mt-10 text-center lg:text-right">
+      <a href="nnc.html"
+         class="inline-flex items-center gap-3 bg-primary-container text-on-primary px-8 py-4 rounded-md font-bold text-sm tracking-wide uppercase hover:brightness-110 transition-all">
+        Read about the NNC Concept
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="bg-primary rounded-xl p-6 md:p-12 lg:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+      <div>
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Get in Touch</span>
+        <h2 class="text-3xl font-bold font-headline text-white tracking-tight mb-4">
+          Let's build the next generation<br/>of nuclear infrastructure.
+        </h2>
+        <p class="text-white/60 max-w-lg leading-relaxed">
+          Interested in learning more about what we do, or exploring collaboration opportunities? We'd love to hear from you.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4 shrink-0">
+        <a href="mailto:info@arv.energy?subject=Hello%20Arv%20Energy"
+           class="bg-white text-primary px-8 py-4 rounded-md font-bold text-sm tracking-wide uppercase hover:bg-surface-container-highest transition-colors whitespace-nowrap text-center">
+          info@arv.energy
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mailing List -->
+<section class="py-20 bg-primary">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Stay Informed</span>
+        <h2 class="text-4xl font-bold font-headline text-white leading-[1.1] mb-4">
+          Nuclear market updates.<br/>No noise.
+        </h2>
+        <p class="text-white/60 leading-relaxed">
+          Occasional updates on the nuclear construction market, Nordic industry developments, and Arv Energy progress.
+        </p>
+      </div>
+      <div class="eo-wrapper-index">
+        <script async src="https://eocampaign1.com/form/a533fabc-2a70-11f1-b558-cbac5ffe20f1.js" data-form="a533fabc-2a70-11f1-b558-cbac5ffe20f1"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-[#f9f9f9]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-0">
+      <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;margin-bottom:8px;"></a>
+      <div class="text-slate-500 font-['Space_Grotesk'] text-xs uppercase tracking-widest">
+        &copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline"
+         href="privacy.html">Privacy Policy</a>
+      <button type="button" id="cookie-settings-btn" class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline bg-transparent border-none cursor-pointer">Cookie Settings</button>
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] transition-opacity underline-offset-4 hover:underline"
+         href="mailto:info@arv.energy">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies for analytics to understand site traffic. <a href="privacy.html" style="color:#aec7f6;text-decoration:underline;">Privacy Policy</a></p>
+  <div class="cookie-actions">
+    <button class="cookie-btn ghost" id="cookie-decline" type="button">Decline</button>
+    <button class="cookie-btn primary" id="cookie-accept" type="button">Accept</button>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
+<script>
+(function () {
+  // Historical nuclear capacity data in GWe (source: IAEA PRIS)
+  const historicalData = [
+    {x:1954,y:0.005},{x:1955,y:0.005},{x:1956,y:0.065},{x:1957,y:0.209},
+    {x:1958,y:0.269},{x:1959,y:0.548},{x:1960,y:1.087},{x:1961,y:1.088},
+    {x:1962,y:2.207},{x:1963,y:2.661},{x:1964,y:3.670},{x:1965,y:5.894},
+    {x:1966,y:7.523},{x:1967,y:9.579},{x:1968,y:10.632},{x:1969,y:14.080},
+    {x:1970,y:17.615},{x:1971,y:24.304},{x:1972,y:32.781},{x:1973,y:43.645},
+    {x:1974,y:61.005},{x:1975,y:70.398},{x:1976,y:83.977},{x:1977,y:96.187},
+    {x:1978,y:111.725},{x:1979,y:117.799},{x:1980,y:133.022},{x:1981,y:153.820},
+    {x:1982,y:168.302},{x:1983,y:187.744},{x:1984,y:218.437},{x:1985,y:245.779},
+    {x:1986,y:272.074},{x:1987,y:295.812},{x:1988,y:305.212},{x:1989,y:311.913},
+    {x:1990,y:318.224},{x:1991,y:321.924},{x:1992,y:325.261},{x:1993,y:333.914},
+    {x:1994,y:336.904},{x:1995,y:341.387},{x:1996,y:347.281},{x:1997,y:347.880},
+    {x:1998,y:344.900},{x:1999,y:347.353},{x:2000,y:349.984},{x:2001,y:352.715},
+    {x:2002,y:357.481},{x:2003,y:359.827},{x:2004,y:364.539},{x:2005,y:368.035},
+    {x:2006,y:369.491},{x:2007,y:369.483},{x:2008,y:368.266},{x:2009,y:367.406},
+    {x:2010,y:370.930},{x:2011,y:350.655},{x:2012,y:350.942},{x:2013,y:349.472},
+    {x:2014,y:353.959},{x:2015,y:360.504},{x:2016,y:368.188},{x:2017,y:369.418},
+    {x:2018,y:374.110},{x:2019,y:369.590},{x:2020,y:369.804},{x:2021,y:366.790},
+    {x:2022,y:370.941},{x:2023,y:371.539},{x:2024,y:377.000},{x:2025,y:376.300}
+  ];
+
+  // COP28 pathway: 32.9 GWe/yr from 2025, reaching ~1,200 GWe by 2050
+  const projectionData = [];
+  for (let y = 2025; y <= 2050; y++) {
+    projectionData.push({x: y, y: parseFloat((376.3 + 32.9 * (y - 2025)).toFixed(1))});
+  }
+
+  var canvas = document.getElementById('nuclearChart');
+  var ctx = canvas.getContext('2d');
+
+  var nuclearChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      datasets: [
+        {
+          label: 'Nuclear capacity in operation (GWe)',
+          data: historicalData,
+          borderColor: '#aec7f6',
+          backgroundColor: 'rgba(174,199,246,0.12)',
+          fill: 'origin',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          tension: 0.3
+        },
+        {
+          label: 'COP28 pathway — 32.9 GWe/yr from 2025',
+          data: projectionData,
+          borderColor: '#708ab5',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          borderDash: [6, 4],
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          fill: false,
+          tension: 0.1
         }
-        banner.classList.remove('is-visible');
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: window.innerWidth < 640 ? 1.4 : 2.4,
+      interaction: {mode: 'nearest', intersect: false},
+      scales: {
+        x: {
+          type: 'linear',
+          min: 1954,
+          max: 2051,
+          grid: {color: 'rgba(255,255,255,0.06)'},
+          border: {display: false},
+          ticks: {
+            color: 'rgba(255,255,255,0.55)',
+            maxTicksLimit: window.innerWidth < 640 ? 6 : 11,
+            font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 9 : 11},
+            callback: function(v) { return Math.round(v); }
+          }
+        },
+        y: {
+          min: 0,
+          max: 1300,
+          grid: {color: 'rgba(255,255,255,0.06)'},
+          border: {display: false},
+          ticks: {
+            color: 'rgba(255,255,255,0.55)',
+            stepSize: window.innerWidth < 640 ? 400 : 200,
+            font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 9 : 11},
+            callback: function(v) { return Math.round(v) + ' GWe'; }
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Historical nuclear capacity and COP28 target for 2050',
+          color: 'rgba(255,255,255,0.85)',
+          font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 11 : 14, weight: '600'},
+          padding: {bottom: window.innerWidth < 640 ? 8 : 16}
+        },
+        tooltip: {
+          backgroundColor: 'rgba(0,10,30,0.92)',
+          titleColor: '#aec7f6',
+          bodyColor: 'rgba(255,255,255,0.8)',
+          borderColor: 'rgba(174,199,246,0.2)',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: {family: 'Space Grotesk', weight: 'bold'},
+          bodyFont: {family: 'Space Grotesk'},
+          callbacks: {
+            title: function(items) { return items[0].parsed.x.toString(); },
+            label: function(item) {
+              const label = item.dataset.label.split('—')[0].split('(')[0].trim();
+              return label + ': ' + item.parsed.y.toFixed(0) + ' GWe';
+            }
+          }
+        },
+        annotation: {
+          annotations: {
+            // Shaded region: 1972–1989 peak buildout era
+            peakEraBox: {
+              type: 'box',
+              xMin: 1972,
+              xMax: 1989,
+              yMin: 0,
+              yMax: 1300,
+              backgroundColor: 'rgba(174,199,246,0.06)',
+              borderColor: 'rgba(174,199,246,0.2)',
+              borderWidth: 1
+            },
+            // Label inside the peak era box
+            peakEraLabel: {
+              type: 'label',
+              xValue: 1980.5,
+              yValue: 420,
+              content: ['1972–1989', '16.4 GWe/yr avg'],
+              color: 'rgba(174,199,246,0.85)',
+              font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 8 : 10, weight: 'bold'},
+              textAlign: 'center'
+            },
+            // COP28 1,200 GWe target horizontal line
+            targetLine: {
+              type: 'line',
+              yMin: 1200,
+              yMax: 1200,
+              borderColor: 'rgba(255,210,80,0.65)',
+              borderWidth: 1.5,
+              borderDash: [8, 5]
+            },
+            // Label for the 1,200 GWe target line
+            targetLabel: {
+              type: 'label',
+              xValue: window.innerWidth < 640 ? 2003 : 1978,
+              yValue: 1260,
+              content: window.innerWidth < 640 ? '1,200 GWe target' : '1,200 GWe — COP28 Target (2050)',
+              color: 'rgba(255,210,80,0.9)',
+              font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 8 : 10, weight: 'bold'},
+              textAlign: 'center'
+            },
+            // Label on the projection line
+            projectionLabel: {
+              type: 'label',
+              xValue: 2039,
+              yValue: 750,
+              content: ['32.9 GWe/yr', 'required'],
+              color: 'rgba(112,138,181,0.9)',
+              font: {family: 'Space Grotesk', size: window.innerWidth < 640 ? 8 : 10, weight: 'bold'},
+              textAlign: 'center'
+            }
+          }
+        }
       }
+    }
+  });
 
-      acceptBtn.addEventListener('click', function() {
-        setConsent('accepted');
-      });
+  // Fix: force chart to resize correctly when browser window shrinks
+  var chartWrapper = canvas.parentElement;
+  if (window.ResizeObserver) {
+    new ResizeObserver(function() {
+      nuclearChart.resize();
+    }).observe(chartWrapper);
+  }
+})();
+</script>
 
-      declineBtn.addEventListener('click', function() {
-        setConsent('declined');
+<!-- EPC Map & Pie Chart -->
+<script>
+(function () {
+
+  // ── EPC data ──────────────────────────────────────────────────────────────
+  const epcs = [
+    {
+      name: "Rosatom / ASE",
+      country: "Russia",
+      lat: 55.75, lng: 37.62,
+      gwe: 65, reactors: 75,
+      types: "VVER-440/1000/1200, RBMK",
+      period: "1964–present",
+      status: "Uncertain",
+      note: "Sanctions & geopolitics constrain exports. ~20 units currently under construction abroad."
+    },
+    {
+      name: "EDF / Framatome",
+      country: "France",
+      lat: 48.85, lng: 2.35,
+      gwe: 72, reactors: 66,
+      types: "PWR 900/1300/N4, EPR",
+      period: "1964–present",
+      status: "Challenging",
+      note: "Rebuilding capability. EPR2: 6–14 units in France + Hinkley C & Sizewell C under development."
+    },
+    {
+      name: "Bechtel",
+      country: "USA",
+      lat: 38.96, lng: -77.36,
+      gwe: 76, reactors: 150,
+      types: "Various (Westinghouse, GE)",
+      period: "1957–present",
+      status: "Challenging",
+      note: "Largest Western nuclear EPC. Completed Vogtle 3&4 (AP1000). Building Poland NPP. Workforce capacity is the key bottleneck."
+    },
+    {
+      name: "KEPCO / KHNP",
+      country: "South Korea",
+      lat: 36.35, lng: 127.38,
+      gwe: 32, reactors: 32,
+      types: "OPR-1000, APR-1400",
+      period: "1978–present",
+      status: "Plausible",
+      note: "Strong recent execution (Barakah, UAE). Won Czech Dukovany tender. IP restrictions with Westinghouse limit EU/NA market access."
+    },
+    {
+      name: "CNNC",
+      country: "China",
+      lat: 39.91, lng: 116.39,
+      gwe: 28, reactors: 30,
+      types: "CNP-300/600, Hualong One",
+      period: "1991–present",
+      status: "Likely exceeds",
+      note: "Building ~3–4 units/year domestically. Exported 7 units to Pakistan (~4.6 GW). Domestic demand absorbs most capacity."
+    },
+    {
+      name: "CGN (China General Nuclear)",
+      country: "China",
+      lat: 22.54, lng: 114.06,
+      gwe: 30, reactors: 27,
+      types: "CPR-1000, Hualong One",
+      period: "1994–present",
+      status: "Likely exceeds",
+      note: "53% of Chinese nuclear generation. CPR-1000 derived from Framatome M310. Partner in Hinkley C & Sizewell C."
+    },
+    {
+      name: "GE Vernova Hitachi",
+      country: "USA / Japan",
+      lat: 42.36, lng: -71.06,
+      gwe: 72, reactors: 83,
+      types: "BWR-1 to 6, ABWR, BWRX-300",
+      period: "1957–present",
+      status: "Ambitious",
+      note: "83 BWRs built globally. First BWRX-300 SMR under construction at Darlington, Canada. Multiple SMR deployments planned."
+    },
+    {
+      name: "AECL / AtkinsRéalis",
+      country: "Canada",
+      lat: 45.5, lng: -73.57,
+      gwe: 24, reactors: 41,
+      types: "CANDU-6, CANDU PHW",
+      period: "1962–2007",
+      status: "Unlikely",
+      note: "CANDU era over. Focus on refurbishment and BWRX-300 EPC support. CANDU IP now held by AtkinsRéalis."
+    },
+    {
+      name: "Westinghouse",
+      country: "USA",
+      lat: 40.73, lng: -80.09,
+      gwe: 14, reactors: 12,
+      types: "AP1000, AP300 (SMR)",
+      period: "1957–present",
+      status: "Ambitious",
+      note: "Technology basis for ~50% of world fleet (~185 GW). Direct EPC on ~12 AP1000 units. 10 AP1000s planned in US. AP300 SMR in development."
+    },
+    {
+      name: "Mitsubishi Heavy Industries",
+      country: "Japan",
+      lat: 34.69, lng: 135.19,
+      gwe: 22, reactors: 24,
+      types: "Mitsubishi PWR, ATMEA",
+      period: "1970–present",
+      status: "Unlikely",
+      note: "~24 PWRs in Japan. ATMEA JV with Framatome. Limited export track record. Japanese restart underway but slow."
+    },
+    {
+      name: "Toshiba / IHI",
+      country: "Japan",
+      lat: 35.69, lng: 139.69,
+      gwe: 10, reactors: 10,
+      types: "BWR, ABWR",
+      period: "1970–present",
+      status: "Unlikely",
+      note: "ABWR units in Japan. Formerly owned Westinghouse (2006–2018). Financial difficulties following V.C. Summer/Vogtle losses."
+    },
+    {
+      name: "Aecon (+ Kiewit JV)",
+      country: "Canada",
+      lat: 43.65, lng: -79.38,
+      gwe: 5, reactors: 5,
+      types: "CANDU refurb, BWRX-300",
+      period: "1970s–present",
+      status: "Support role",
+      note: "Darlington refurbishment ($9.4B, completed 2026). BWRX-300 EPC contract at Darlington. Primarily Canadian nuclear construction."
+    },
+    {
+      name: "Ansaldo Nucleare",
+      country: "Italy",
+      lat: 44.41, lng: 8.93,
+      gwe: 0.9, reactors: 1,
+      types: "BWR (Caorso), components",
+      period: "1966–present",
+      status: "Support role",
+      note: "One reactor as lead EPC (Caorso, 860 MW). Now components/services for ITER, decommissioning. Part of Nuclitalia JV for future SMR."
+    },
+    {
+      name: "Doosan Enerbility",
+      country: "South Korea",
+      lat: 35.23, lng: 128.68,
+      gwe: 0, reactors: 0,
+      types: "Forgings, RPVs, steam generators",
+      period: "1980s–present",
+      status: "Key supplier",
+      note: "Critical supplier of reactor pressure vessels and steam generators for Korean and UAE projects. Not a lead EPC."
+    }
+  ];
+
+  // ── Leaflet map — integrated, no-tile-chrome look ────────────────────────
+  // Positron No-Labels: white ocean, soft grey land — blends with white section bg
+  var isMobile = window.innerWidth < 640;
+  const map = L.map('epcMap', {
+    center: isMobile ? [30, 20] : [28, 18],
+    zoom: isMobile ? 1 : 2,
+    zoomControl: false,
+    scrollWheelZoom: false,
+    attributionControl: true,
+    dragging: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OSM</a> © <a href="https://carto.com">CARTO</a>',
+    maxZoom: 5,
+    subdomains: 'abcd'
+  }).addTo(map);
+
+  // Dot colour by delivery outlook
+  const statusColors = {
+    'Likely exceeds': '#059669',  // green
+    'Plausible':      '#2563eb',  // blue
+    'Ambitious':      '#7c3aed',  // purple
+    'Challenging':    '#d97706',  // amber
+    'Uncertain':      '#dc2626',  // red
+    'Unlikely':       '#6b7280',
+    'Support role':   '#6b7280',
+    'Key supplier':   '#94a3b8'
+  };
+
+  // label direction + pixel offset per EPC — tuned to avoid overlap
+  const labelMeta = {
+    'Rosatom / ASE':            { dir: 'right',  off: [10, -6]  },
+    'EDF / Framatome':          { dir: 'left',   off: [-10, -6] },
+    'Bechtel':                  { dir: 'bottom', off: [0,   10] },
+    'KEPCO / KHNP':             { dir: 'right',  off: [10, -4]  },
+    'CNNC':                     { dir: 'top',    off: [0,  -10] },
+    'CGN (China General Nuclear)': { dir: 'left', off: [-10, 6] },
+    'GE Vernova Hitachi':       { dir: 'top',    off: [0,  -10] },
+    'AECL / AtkinsRéalis':        { dir: 'left', off: [-10, -4] },
+    'Westinghouse':             { dir: 'bottom', off: [0,   10] },
+    'Mitsubishi Heavy Industries': { dir: 'bottom', off: [0, 10] },
+    'Toshiba / IHI':            { dir: 'right',  off: [10,  0]  },
+    'Ansaldo Nucleare':         { dir: 'right',  off: [10, -4]  },
+    'Aecon (+ Kiewit JV)':      { dir: 'top',    off: [0,  -10] },
+    'Doosan Enerbility':        { dir: 'left',   off: [-10, 4]  }
+  };
+
+  var dotScale = isMobile ? 0.55 : 1;
+  var labelNameSize = isMobile ? '8px' : '11px';
+  var labelDetailSize = isMobile ? '7px' : '9.5px';
+
+  epcs.forEach(epc => {
+    const radius = (epc.gwe > 0 ? Math.max(5, Math.sqrt(epc.gwe) * 2.0) : 4) * dotScale;
+    const dot = L.circleMarker([epc.lat, epc.lng], {
+      radius,
+      fillColor: statusColors[epc.status] || '#002147',
+      color: '#ffffff',
+      weight: isMobile ? 1 : 1.5,
+      fillOpacity: 0.92
+    }).addTo(map);
+
+    const meta = labelMeta[epc.name] || { dir: 'top', off: [0, -8] };
+    var off = isMobile ? [Math.round(meta.off[0] * 0.6), Math.round(meta.off[1] * 0.6)] : meta.off;
+
+    if (epc.gwe >= 10) {
+      // Permanent always-visible callout
+      dot.bindTooltip(
+        `<span style="font-family:Space Grotesk,sans-serif;font-size:${labelNameSize};font-weight:700;display:block;line-height:1.15">${epc.name}</span>` +
+        `<span style="font-family:Space Grotesk,sans-serif;font-size:${labelDetailSize};opacity:0.65;display:block">${epc.country} · ${epc.gwe} GWe</span>`,
+        { permanent: true, direction: meta.dir, className: 'epc-callout', offset: off }
+      );
+    } else {
+      // Hover-only detail card for smaller players
+      dot.bindTooltip(buildDetail(epc), {
+        sticky: true, direction: 'top',
+        className: 'epc-detail', offset: [0, -(radius + 4)]
       });
-    })();
-  </script>
+    }
+  });
+
+  function buildDetail(epc) {
+    return `<div style="font-family:Space Grotesk,sans-serif;min-width:200px;max-width:260px;">
+      <div style="font-weight:700;font-size:12px;color:#000a1e;margin-bottom:3px;">${epc.name}</div>
+      <div style="font-size:10px;color:#44474e;margin-bottom:5px;">${epc.country} · ${epc.period}</div>
+      <div style="font-size:10px;color:#44474e;font-style:italic;margin-bottom:5px;">${epc.types}</div>
+      <div style="font-size:10px;background:#f3f3f3;padding:4px 6px;border-radius:3px;color:#44474e;line-height:1.4;">${epc.note}</div>
+      <div style="margin-top:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:${statusColors[epc.status]};">${epc.status}</div>
+    </div>`;
+  }
+
+  // ── EPC donut / pie chart ─────────────────────────────────────────────────
+  // Data: each established EPC's "replicated history" vs ~800 GWe target
+  // Source: nuclear_epc_analysis.xlsx, sheet "Nuclear EPC Analysis"
+  const pieLabels = [
+    'Bechtel (USA)',
+    'EDF / Framatome (France)',
+    'GE Vernova Hitachi (USA/Japan)',
+    'Rosatom (Russia)',
+    'CNNC + CGN (China)',
+    'KEPCO / KHNP (S. Korea)',
+    'Other established EPCs',
+    'Open Market Gap'
+  ];
+  const pieData = [76, 72, 72, 65, 50, 32, 91, 345];
+  // Navy-to-blue gradient for established EPCs; gold for the gap
+  const pieColors = [
+    '#001a3d',
+    '#002d5e',
+    '#1a4a80',
+    '#2e6499',
+    '#4a80b4',
+    '#6fa0cc',
+    '#9fc0df',
+    '#f5b800'   // gold — open market gap
+  ];
+  const pieBorders = pieColors.map((c, i) => i === 7 ? '#d4a000' : '#ffffff');
+
+  const pieCtx = document.getElementById('epcPieChart').getContext('2d');
+  new Chart(pieCtx, {
+    type: 'doughnut',
+    data: {
+      labels: pieLabels,
+      datasets: [{
+        data: pieData,
+        backgroundColor: pieColors,
+        borderColor: pieBorders,
+        borderWidth: 2,
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.15,
+      cutout: '58%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            font: {family: 'Space Grotesk', size: 11},
+            color: '#1a1c1c',
+            padding: 12,
+            usePointStyle: true,
+            pointStyleWidth: 14,
+            generateLabels: function(chart) {
+              const ds = chart.data.datasets[0];
+              return chart.data.labels.map((label, i) => ({
+                text: `${label}  —  ${ds.data[i]} GWe`,
+                fillStyle: ds.backgroundColor[i],
+                strokeStyle: ds.borderColor[i],
+                lineWidth: 1,
+                pointStyle: 'circle',
+                hidden: false,
+                index: i,
+                fontColor: i === 7 ? '#b38200' : '#1a1c1c'
+              }));
+            }
+          }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(0,10,30,0.92)',
+          titleColor: '#aec7f6',
+          bodyColor: 'rgba(255,255,255,0.85)',
+          borderColor: 'rgba(174,199,246,0.2)',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: {family: 'Space Grotesk', weight: 'bold'},
+          bodyFont: {family: 'Space Grotesk'},
+          callbacks: {
+            title: function(items) { return items[0].label; },
+            label: function(item) {
+              const pct = ((item.raw / 800) * 100).toFixed(1);
+              return ` ${item.raw} GWe  (${pct}% of ~800 GWe target)`;
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      // Centre label showing open market gap
+      id: 'centreLabel',
+      afterDraw(chart) {
+        const {ctx, chartArea: {top, bottom, left, right}} = chart;
+        const cx = (left + right) / 2;
+        const cy = (top + bottom) / 2;
+        var donutWidth = Math.min(right - left, bottom - top);
+        var mainSize = donutWidth < 220 ? 14 : (donutWidth < 300 ? 18 : 22);
+        var subSize = donutWidth < 220 ? 8 : 10;
+        var gap = donutWidth < 220 ? 7 : 10;
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = 'bold ' + mainSize + 'px Space Grotesk, sans-serif';
+        ctx.fillStyle = '#f5b800';
+        ctx.fillText('345 GWe', cx, cy - gap);
+        ctx.font = subSize + 'px Space Grotesk, sans-serif';
+        ctx.fillStyle = '#44474e';
+        ctx.fillText('open market', cx, cy + gap);
+        ctx.restore();
+      }
+    }]
+  });
+
+})();
+</script>
+
+<!-- Cookie Consent -->
+<script>
+(function () {
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var settingsBtn = document.getElementById('cookie-settings-btn');
+  var stored = localStorage.getItem('arv_cookie_consent');
+
+  if (!stored) { banner.classList.add('is-visible'); }
+
+  function setConsent(value) {
+    localStorage.setItem('arv_cookie_consent', value);
+    if (value === 'accepted') {
+      gtag('consent', 'update', {'analytics_storage': 'granted'});
+    } else {
+      gtag('consent', 'update', {'analytics_storage': 'denied'});
+    }
+    banner.classList.remove('is-visible');
+  }
+
+  acceptBtn.addEventListener('click', function () { setConsent('accepted'); });
+  declineBtn.addEventListener('click', function () { setConsent('declined'); });
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', function () { banner.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+<!-- Mobile menu -->
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+
+<!-- Auto copyright year -->
+<script>
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+
 </body>
 </html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oil &amp; Gas Competence Transfer | ARV Energy</title>
+<meta name="description" content="Literature review: how oil &amp; gas construction competence maps to nuclear new build — and why the nuclear industry needs it."/>
+<link rel="canonical" href="https://www.arv.energy/competence-transfer.html"/>
+<link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.arv.energy/competence-transfer.html"/>
+<meta property="og:title" content="Oil &amp; Gas Competence Transfer | ARV Energy"/>
+<meta property="og:description" content="Literature review: how oil &amp; gas construction competence maps to nuclear new build — and why the nuclear industry needs it."/>
+<meta property="og:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Oil &amp; Gas Competence Transfer | ARV Energy"/>
+<meta name="twitter:description" content="Literature review: how oil &amp; gas construction competence maps to nuclear new build — and why the nuclear industry needs it."/>
+<meta name="twitter:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-header { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); }
+  .source-card { border-left: 3px solid #002147; }
+  .source-card:hover { border-left-color: #f5b800; }
+  .stat-ring { width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-family: 'Space Grotesk', sans-serif; }
+  table.lit-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  table.lit-table th { text-align: left; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; color: #708ab5; padding: 10px 12px; border-bottom: 2px solid #002147; }
+  table.lit-table td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.06); vertical-align: top; color: #44474e; }
+  table.lit-table tr:hover td { background: rgba(0,10,30,0.02); }
+  table.lit-table .src-name { font-weight: 700; color: #000a1e; }
+  table.lit-table .src-name a { color: #000a1e; text-decoration: none; }
+  table.lit-table .src-name a:hover { text-decoration: underline; color: #002147; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:3px; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
+  .tag-gov  { background:#e8f5e9; color:#2e7d32; }
+  .tag-iaea { background:#e3f2fd; color:#1565c0; }
+  .tag-industry { background:#fff3e0; color:#ef6c00; }
+  .tag-academic { background:#f3e5f5; color:#7b1fa2; }
+  .tag-oecd { background:#e0f2f1; color:#00695c; }
+  .tag-case { background:#fce4ec; color:#c62828; }
+</style>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-white">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-header border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+  <div class="hidden md:flex items-center space-x-8 font-headline text-sm font-medium tracking-tight">
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="index.html">Home</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="nnc.html">NNC Concept</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="heritage.html">Heritage</a>
+    <a class="text-primary-container border-b-2 border-primary-container pb-1" href="resources.html">Resources</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="index.html#contact">Contact</a>
+  </div>
+  <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-primary-container" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+  </button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-primary-container" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-primary-container font-bold" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<main class="pt-20">
+
+<!-- Hero -->
+<section class="bg-primary text-white py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-8">
+    <a href="resources.html" class="inline-flex items-center gap-1 text-[0.6875rem] font-bold uppercase tracking-widest text-primary-fixed-dim mb-6 hover:text-white transition-colors">
+      <span class="material-symbols-outlined" style="font-size:0.8rem;">arrow_back</span> Resources
+    </a>
+    <h1 class="text-4xl lg:text-5xl font-bold font-headline tracking-tight leading-[1.05] mb-6">
+      Oil &amp; Gas<br/>Competence Transfer
+    </h1>
+    <p class="text-white/65 text-lg leading-relaxed max-w-3xl mb-10">
+      A literature review of how oil &amp; gas construction competence maps to nuclear new build, and how it can be leveraged to scale the nuclear industry.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#f5b800;">80%</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">Conventional construction</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#aec7f6;">80%+</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">Estimated transferable O&amp;G skills</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#aec7f6;">4M+</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">Nuclear workers needed by 2050</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Core Thesis -->
+<section class="py-16 bg-white border-b border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-5">
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">The Core Thesis</span>
+        <h2 class="text-3xl font-bold font-headline tracking-tight text-primary mb-6 leading-[1.1]">
+          Nuclear's problem is construction, not fission
+        </h2>
+      </div>
+      <div class="lg:col-span-7 space-y-4">
+        <p class="text-on-surface-variant leading-relaxed">
+          The nuclear industry faces an unprecedented challenge: <strong class="text-primary">tripling global capacity by 2050</strong> requires building more nuclear power in 25 years than the world built in 70. The bottleneck is not reactor technology — it is the <strong class="text-primary">construction workforce and supply chain</strong>.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          Multiple independent studies — from national governments, international agencies, and industry bodies — converge on a striking conclusion: the vast majority of the skills needed to build nuclear power plants <strong class="text-primary">already exist in the oil &amp; gas sector</strong>.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          This literature review compiles the evidence. It draws on 15+ sources across government assessments, IAEA and OECD reports, academic research, and real-world case studies to map the O&amp;G-to-nuclear competence transfer pathway.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The 80% Quote -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-6 block">Key Finding</span>
+        <blockquote class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline italic leading-[1.15] mb-6">
+          "Around 80% of nuclear new build work is conventional construction, not nuclear."
+        </blockquote>
+        <p class="text-white/60 text-sm leading-relaxed max-w-2xl">
+          Nuclear Industry Association (NIA), <em>"The UK capability to deliver a new nuclear build programme — 2008 Update."</em> This finding means that four-fifths of the work in building a nuclear plant uses skills that already exist in the O&amp;G construction workforce — project management, civil works, piping, electrical, mechanical fitting, steel erection, and quality management.
+        </p>
+      </div>
+      <div class="lg:col-span-4">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
+          <div class="text-5xl md:text-7xl font-black font-headline mb-2" style="color:#f5b800;">80%</div>
+          <div class="text-xs uppercase tracking-widest text-white/50 font-bold mb-4">Conventional construction</div>
+          <div class="w-full bg-white/10 rounded-full h-3 mb-3">
+            <div class="h-3 rounded-full" style="width:80%;background:#f5b800;"></div>
+          </div>
+          <div class="flex justify-between text-[0.6rem] text-white/40 uppercase tracking-wider font-bold">
+            <span>Conventional</span>
+            <span>Nuclear-specific</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Workforce Crisis -->
+<section class="py-20" style="background:#F5F7FC;">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">The Challenge</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">A workforce crisis the nuclear industry cannot solve alone</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="text-3xl font-black font-headline text-primary mb-2">4M+</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-3">Workers needed by 2050</div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed">The IAEA forecasts the nuclear industry will require over four million professionals globally to support capacity tripling.</p>
+        <p class="text-[0.6rem] text-on-surface-variant/40 mt-2">Source: <a href="https://www.iaea.org/newscenter/news/sustainability-through-capacity-building-iaea-hosts-conference-on-nuclear-knowledge-management-and-human-resources-development" target="_blank" class="hover:underline">IAEA (2024)</a></p>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="text-3xl font-black font-headline text-primary mb-2">1.7×</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-3">Retirement ratio</div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed">In nuclear, for every young worker entering, 1.7 workers are approaching retirement. One-third of the existing workforce retires by 2033.</p>
+        <p class="text-[0.6rem] text-on-surface-variant/40 mt-2">Source: <a href="https://www.iea.org/reports/world-energy-employment-2025/executive-summary" target="_blank" class="hover:underline">IEA (2025)</a></p>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="text-3xl font-black font-headline text-primary mb-2">~70%</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-3">Construction &amp; manufacturing jobs</div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed">Only about 30% of jobs in the nuclear industry are focused on operating and maintaining existing plants. Most jobs are concentrated in the manufacturing and construction of nuclear plants.</p>
+        <p class="text-[0.6rem] text-on-surface-variant/40 mt-2">Source: <a href="https://www.iaea.org/newscenter/news/sustainability-through-capacity-building-iaea-hosts-conference-on-nuclear-knowledge-management-and-human-resources-development" target="_blank" class="hover:underline">IAEA (2025)</a></p>
+      </div>
+    </div>
+
+    <div class="bg-primary p-6 rounded-xl max-w-5xl mb-6">
+      <p class="text-white/80 text-sm leading-relaxed">
+        <strong class="text-white">The bottleneck is specific:</strong> Nuclear companies surveyed by the IEA identified engineers as the primary source of workforce bottlenecks, followed by project managers, electrical trades and construction trades such as welders and pipefitters. Some companies reported having to bring in workers from other regions — a practice known as long-distance deployment — which led to cost increases of 10% to 20%, illustrating how labour shortages can directly drive up project costs.
+        <span class="text-white/40 text-xs block mt-2">— <a href="https://www.iea.org/reports/world-energy-employment-2025/executive-summary" target="_blank" class="text-white/40 hover:text-white/60 underline">IEA Nuclear Energy Employment Survey (2025)</a></span>
+      </p>
+    </div>
+
+    <div class="bg-primary p-6 rounded-xl max-w-5xl mb-6">
+      <p class="text-white/80 text-sm leading-relaxed">
+        <strong class="text-white">The wages are attractive:</strong> According to the Wages, Benefits, and Change report, in 2021, the median hourly wage for jobs in the nuclear generation industry was 52% higher than the median hourly wage for all jobs in the electric power generation industry, across generation types — and was more than twice (116% higher) the national median hourly wage across all industries.
+        <span class="text-white/40 text-xs block mt-2">— <a href="https://www.nei.org/advantages/jobs" target="_blank" class="text-white/40 hover:text-white/60 underline">Nuclear Energy Institute (NEI)</a></span>
+      </p>
+    </div>
+
+    <div class="bg-primary p-6 rounded-xl max-w-5xl">
+      <p class="text-white/80 text-sm leading-relaxed">
+        <strong class="text-white">The implication:</strong> The nuclear industry cannot grow this workforce from nuclear-only pipelines. As World Nuclear News put it: <em class="text-white">"Nuclear isn't short of talent; it's short of imagination in how it attracts, trains, and supports the workforce of the future."</em>
+        <span class="text-white/40 text-xs block mt-2">— <a href="https://www.world-nuclear-news.org/articles/viewpoint-reframing-nuclears-talent-challenge-why-scarcity-is-a-myth-and-opportunity-abounds" target="_blank" class="text-white/40 hover:text-white/60 underline">Chamberlain, J. (2025). World Nuclear News.</a></span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- The Evidence: Skills Transferability -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">The Evidence</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+        <h2 class="text-3xl font-bold font-headline tracking-tight text-primary leading-[1.1]">
+          What the research says about skills transferability
+        </h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          Multiple independent studies quantify the overlap between oil &amp; gas and energy construction skills. The consensus is striking: <strong class="text-primary">80%+ of O&amp;G skills are estimated to be transferable</strong> to nuclear construction.
+        </p>
+      </div>
+    </div>
+
+    <!-- Key statistics visual -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-primary text-white p-8 rounded-xl text-center">
+        <div class="text-4xl md:text-5xl font-black font-headline mb-2" style="color:#f5b800;">90%+</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-white/50 font-bold mb-4">UK O&amp;G workforce</div>
+        <p class="text-sm text-white/60 leading-snug">Over 90% of the UK's oil and gas workforce possesses skills with medium to high transferability to clean energy roles. This statistic was established for offshore renewables, but the overlap with nuclear construction — which shares similar disciplines in fabrication, piping, and safety-critical quality management — is estimated to be comparable.</p>
+        <p class="text-[0.6rem] text-white/30 mt-3"><a href="https://www.rgu.ac.uk/news/news-2023/6352-clock-ticking-for-energy-jobs" target="_blank" class="text-white/30 hover:text-white/50 underline">Robert Gordon University</a> / <a href="https://www.gov.uk/government/publications/clean-power-2030-action-plan-assessment-of-the-clean-energy-skills-challenge/assessment-of-the-clean-energy-skills-challenge" target="_blank" class="text-white/30 hover:text-white/50 underline">UK Government</a> / <a href="https://www.ecitb.org.uk/wp-content/uploads/2020/08/Skills-Transferability-Report-FA.pdf" target="_blank" class="text-white/30 hover:text-white/50 underline">ECITB</a></p>
+      </div>
+      <div class="bg-primary text-white p-8 rounded-xl text-center">
+        <div class="text-4xl md:text-5xl font-black font-headline mb-2" style="color:#f5b800;">70–80%</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-white/50 font-bold mb-4">Norwegian O&amp;G knowledge</div>
+        <p class="text-sm text-white/60 leading-snug">70–80% of knowledge and competence in the Norwegian oil and gas sector is transferable to offshore wind and aquaculture. The overlap with nuclear construction, which shares even more disciplines in heavy fabrication and safety-critical systems, is likely comparable or higher.</p>
+        <p class="text-[0.6rem] text-white/30 mt-3"><a href="https://www.sciencedirect.com/science/article/pii/S221462962600112X" target="_blank" class="text-white/30 hover:text-white/50 underline">Deegan et al. (2025), citing Afewerki et al. (2025)</a></p>
+      </div>
+      <div class="bg-primary text-white p-8 rounded-xl text-center">
+        <div class="text-4xl md:text-5xl font-black font-headline mb-2" style="color:#aec7f6;">⅔</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-white/50 font-bold mb-4">Global O&amp;G supply workers</div>
+        <p class="text-sm text-white/60 leading-snug">Around two-thirds of oil and gas supply workers have the base skills needed to move readily into other parts of energy, including nuclear.</p>
+        <p class="text-[0.6rem] text-white/30 mt-3"><a href="https://www.iea.org/reports/world-energy-employment-2025/executive-summary" target="_blank" class="text-white/30 hover:text-white/50 underline">IEA World Energy Employment (2025)</a></p>
+      </div>
+    </div>
+
+    <!-- Literature review table -->
+    <div class="overflow-x-auto">
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-1">
+        <table class="lit-table">
+          <thead>
+            <tr>
+              <th style="width:22%;">Source</th>
+              <th style="width:8%;">Year</th>
+              <th style="width:10%;">Type</th>
+              <th style="width:30%;">Key Finding</th>
+              <th style="width:30%;">Relevance to O&amp;G → Nuclear</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="src-name"><a href="https://www.gov.uk/government/publications/clean-power-2030-action-plan-assessment-of-the-clean-energy-skills-challenge/assessment-of-the-clean-energy-skills-challenge" target="_blank" class="hover:underline">UK Dept. for Energy Security &amp; Net Zero</a></td>
+              <td>2025</td>
+              <td><span class="tag tag-gov">Government</span></td>
+              <td>Over 90% of O&amp;G workforce has medium-high transferability to clean energy roles. Nuclear sector needs ~120,000 workers by early 2030s (from 83,000). Engineers represent 24% of clean energy job adverts vs 5% baseline.</td>
+              <td>Primary UK government source confirming O&amp;G skills have high transferability across clean energy sectors including nuclear. Construction treated as "cross-cutting capacity."</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.rgu.ac.uk/news/news-2023/6352-clock-ticking-for-energy-jobs" target="_blank" class="hover:underline">Robert Gordon University</a></td>
+              <td>2021–23</td>
+              <td><span class="tag tag-academic">Academic</span></td>
+              <td>Over 90% of UK O&amp;G workforce have medium to high skills transferability to clean energy. ~50% of offshore energy jobs in 2030 filled by O&amp;G transfers. Three in five workers to support clean energy by 2030.</td>
+              <td>The most widely cited transferability statistic, established for clean energy broadly. Referenced by UK government, ECITB, and World Nuclear News. Applicability to nuclear construction specifically is inferred from shared disciplines.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.ecitb.org.uk/wp-content/uploads/2020/08/Skills-Transferability-Report-FA.pdf" target="_blank" class="hover:underline">ECITB — Skills Transferability Report</a></td>
+              <td>2020</td>
+              <td><span class="tag tag-industry">Industry</span></td>
+              <td>Widely cited UK sources (DESNZ 2025; RGU 2021) indicate over 90% of O&amp;G skills are transferable. The ECITB report itself emphasises standardised competence tests (Connected Competence) to enable cross-sector mobility and notes that barriers to transferability are largely institutional (over-specification of qualifications, sector-specific certifications) rather than technical.</td>
+              <td>ECITB is the statutory skills body for engineering construction across O&amp;G, nuclear, and renewables. The Connected Competence framework validates that the same technical skills are common across these sectors; institutional barriers are the primary obstacle.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.iea.org/reports/world-energy-employment-2025/executive-summary" target="_blank" class="hover:underline">IEA — World Energy Employment</a></td>
+              <td>2025</td>
+              <td><span class="tag tag-oecd">International</span></td>
+              <td>Two-thirds of O&amp;G supply workers have base skills for energy transition. In nuclear, 1.7 workers approaching retirement for every young entrant. Over 700 firms reported critical hiring bottlenecks.</td>
+              <td>International validation of transferability. Combined with acute nuclear retirement crisis, makes the case for O&amp;G workforce mobilisation compelling.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.iaea.org/newscenter/news/sustainability-through-capacity-building-iaea-hosts-conference-on-nuclear-knowledge-management-and-human-resources-development" target="_blank" class="hover:underline">IAEA — Nuclear Knowledge Management Conference</a></td>
+              <td>2024</td>
+              <td><span class="tag tag-iaea">IAEA</span></td>
+              <td>4+ million nuclear professionals needed by 2050. One-third of existing workforce retiring by 2033. 1+ million new workers needed for replacement alone. 760+ registrants from 108 countries.</td>
+              <td>The scale of workforce demand makes cross-industry recruitment from O&amp;G essential. The industry cannot grow from nuclear-only pipelines.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.world-nuclear-news.org/articles/viewpoint-reframing-nuclears-talent-challenge-why-scarcity-is-a-myth-and-opportunity-abounds" target="_blank" class="hover:underline">World Nuclear News — Reframing Nuclear's Talent Challenge</a></td>
+              <td>2025</td>
+              <td><span class="tag tag-industry">Industry</span></td>
+              <td>"Nuclear isn't short of talent; it's short of imagination." UK nuclear workforce tripled from 8,500 (2014) to 27,000+. Industries like O&amp;G, aerospace, and defence have significant but overlooked skills overlap.</td>
+              <td>Advocates abandoning "nuclear purist" hiring and developing "nuclearise" programmes — training initiatives converting O&amp;G professionals for nuclear roles.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.world-nuclear-news.org/Articles/UK-industry-gearing-up-for-new-build,-NIA-reports" target="_blank" class="hover:underline">NIA — UK Capability to Deliver New Nuclear Build</a></td>
+              <td>2008</td>
+              <td><span class="tag tag-industry">Industry</span></td>
+              <td>80% of nuclear new build is conventional construction. UK industry could supply 70–80% of a new build programme. Less than 5% of UK construction capability required.</td>
+              <td>The single most important statistic for competence transfer. Four-fifths of nuclear construction uses skills already abundant in O&amp;G — project management, civil works, piping, electrical, mechanical fitting.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.sciencedirect.com/science/article/pii/S221462962600112X" target="_blank" class="hover:underline">Deegan et al. (2025), citing Afewerki et al. (2025)</a></td>
+              <td>2025</td>
+              <td><span class="tag tag-academic">Academic</span></td>
+              <td>70–80% of knowledge and competence in the Norwegian oil-and-gas sector is relevant and relatively easily transferable to offshore wind and aquaculture. Despite high technical transferability, transition is slow. Barriers are institutional — salary competition, lack of policy direction, not technical capability.</td>
+              <td>Norwegian-specific data on O&amp;G-to-wind/aquaculture transferability. The 70–80% figure applies to offshore wind; the overlap with nuclear construction — which shares heavy-fabrication and safety-critical practices common to both O&amp;G and offshore wind — implies a potentially high overlap, but this is an editor's estimation, not a direct finding of the study.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.world-nuclear-news.org/Articles/Study-quantifies-nuclear-sector-s-job-creation" target="_blank" class="hover:underline">OECD-NEA — Measuring Employment in Nuclear</a></td>
+              <td>2018</td>
+              <td><span class="tag tag-oecd">OECD</span></td>
+              <td>200,000 labour years per GW across full lifecycle. Construction phase alone: 12,000 labour years. Meeting 1,000 GWe target could require 810,000 direct job-years annually at peak.</td>
+              <td>The 200,000 labour-years per GW figure demonstrates the enormous scale of workforce mobilisation needed. Construction phase draws heavily on trades found in O&amp;G fabrication.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.lucidcatalyst.com/the-eti-nuclear-cost-drivers" target="_blank" class="hover:underline">LucidCatalyst / ETI — Nuclear Cost Drivers</a></td>
+              <td>2018</td>
+              <td><span class="tag tag-industry">Industry</span></td>
+              <td>Labour and construction execution identified as key cost drivers among eight. 35 credible cost reduction opportunities. Examined 33 recent nuclear projects against benchmarks.</td>
+              <td>Confirms workforce competence directly impacts nuclear project economics. O&amp;G industries have decades of experience optimising labour and construction execution in complex mega-projects.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.nationalacademies.org/read/26630/chapter/1" target="_blank" class="hover:underline">US National Academies — Laying the Foundation</a></td>
+              <td>2023</td>
+              <td><span class="tag tag-gov">Government</span></td>
+              <td>AP1000 module factory at Lake Charles, Louisiana "sourced skilled labour from nearby offshore oil platforms." Shortfall in welding, machining, electrical trades already exists.</td>
+              <td>Most authoritative US source documenting actual O&amp;G-to-nuclear workforce transfer. Lake Charles is direct evidence that offshore platform workers build nuclear modules.</td>
+            </tr>
+            <tr>
+              <td class="src-name"><a href="https://www.nei.org/news/2024/ask-an-expert-growing-the-nuclear-workforce" target="_blank" class="hover:underline">NEI — Nuclear Workforce Strategic Plan</a></td>
+              <td>2024</td>
+              <td><span class="tag tag-industry">Industry</span></td>
+              <td>~100,000 direct US nuclear jobs, ~400,000 with supply chain. 75% of coal plant jobs could transition to nuclear with little reskilling. Skilled trades are critically important.</td>
+              <td>The 75% coal-to-nuclear transferability parallels the O&amp;G thesis. If coal workers transfer readily, O&amp;G workers with more complex safety-critical experience transfer even more so.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Mapping -->
+<section class="py-20" style="background:#F5F7FC;">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Skills Mapping</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">Where the competence overlaps</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">engineering</span>
+          <h3 class="font-bold text-primary text-sm">Project Management</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">Large-scale EPC project delivery, cost control, scheduling, contractor management, interface management across disciplines. Identical methodologies.</p>
+        <div class="flex gap-2">
+          <span class="tag tag-gov">Direct transfer</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">construction</span>
+          <h3 class="font-bold text-primary text-sm">Welding &amp; Fabrication</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">Pressure vessel welding, pipe fitting, structural steel, modular assembly. O&amp;G welders already work to codes (ASME, API) that overlap with nuclear requirements.</p>
+        <div class="flex gap-2">
+          <span class="tag tag-gov">Direct transfer</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">verified_user</span>
+          <h3 class="font-bold text-primary text-sm">Quality &amp; Safety Culture</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">Safety-critical operations, HAZOP, quality assurance systems, regulatory compliance, incident investigation. O&amp;G operates under comparable safety regimes.</p>
+        <div class="flex gap-2">
+          <span class="tag tag-gov">Direct transfer</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">electrical_services</span>
+          <h3 class="font-bold text-primary text-sm">Electrical &amp; Instrumentation</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">High-voltage systems, control systems, instrumentation, cable management. Among the most in-demand trades across both sectors.</p>
+        <div class="flex gap-2">
+          <span class="tag tag-gov">Direct transfer</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">view_in_ar</span>
+          <h3 class="font-bold text-primary text-sm">Modular Construction</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">Heavy module fabrication, load-out, sea transport, hook-up &amp; commissioning. Norwegian yards have world-leading capability in this exact discipline.</p>
+        <div class="flex gap-2">
+          <span class="tag tag-gov">Direct transfer</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary-container" style="font-size:1.5rem;">school</span>
+          <h3 class="font-bold text-primary text-sm">Nuclear-Specific Training</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant/70 leading-relaxed mb-3">Radiation protection, nuclear QA (NQA-1), reactor systems. The remaining ~20% that requires "nuclearisation" — targeted upskilling, not starting from scratch.</p>
+        <div class="flex gap-2">
+          <span class="tag" style="background:#fff3e0;color:#ef6c00;">Upskilling required</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-outline-variant/30 p-6 max-w-4xl">
+      <p class="text-sm text-on-surface-variant leading-relaxed">
+        <strong class="text-primary">The ECITB Connected Competence framework</strong> already enables workers to move between O&amp;G, nuclear, and renewables by standardising technical competence assurance. The barriers to cross-sector mobility are primarily <em>institutional</em> — ingrained recruitment practices that compartmentalise trades unnecessarily — not technical.
+      </p>
+      <p class="text-[0.6rem] text-on-surface-variant/40 mt-2">Source: ECITB Skills Transferability Report (2020)</p>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">In Practice</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">Real-world O&amp;G to nuclear transfers</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Lake Charles -->
+      <div class="source-card bg-surface-container-low rounded-xl p-8 transition-all duration-300 block">
+        <span class="tag tag-case mb-4 inline-block">Documented case</span>
+        <h3 class="text-lg font-bold text-primary mb-3">AP1000 Module Factory, Lake Charles</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed mb-3">
+          The Westinghouse AP1000 modular construction facility in Louisiana <strong class="text-primary">"sourced skilled labour from nearby offshore oil platforms"</strong> — a direct, documented case of O&amp;G workers building nuclear reactor modules.
+        </p>
+        <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+          This case also highlights significant quality control challenges that await new and advanced reactor designs — challenges that need to be carefully thought through ahead. Even though the opportunity is there, it does not mean the path will be easy.
+        </p>
+        <a href="https://www.nationalacademies.org/read/26630/chapter/1" target="_blank" class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest hover:underline">
+          US National Academies (2023) <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+      </div>
+
+      <!-- Cammell Laird -->
+      <div class="source-card bg-surface-container-low rounded-xl p-8 transition-all duration-300 block">
+        <span class="tag tag-case mb-4 inline-block">Shipyard pivot</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Cammell Laird Shipyard &amp; Nuvia</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+          UK shipyard Cammell Laird partnered with Nuvia and Ansaldo Nucleare to fabricate heavy modules for AP1000 and EPR nuclear plants. Their 40,000 m² modular hall can build modules up to 1,000 tonnes with sea-access load-out for modules up to 5,000 tonnes.
+        </p>
+        <div class="space-y-2">
+          <a href="https://www.neimagazine.com/news/nuvia-forms-new-build-alliance-with-cammell-laird/" target="_blank" class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest hover:underline">
+            Nuclear Engineering International (2010) <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+          <a href="https://lbndaily.co.uk/cammell-lairds-critical-role-in-nuclear-power-push/" target="_blank" class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest hover:underline">
+            LBN Daily — Critical Role in Nuclear Push <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blue Energy -->
+      <a href="https://www.world-nuclear-news.org/articles/us-startup-aims-for-shipyard-smr-construction" target="_blank" class="source-card bg-surface-container-low rounded-xl p-8 transition-all duration-300 block group">
+        <span class="tag tag-case mb-4 inline-block">Startup model</span>
+        <h3 class="text-lg font-bold text-primary mb-3 group-hover:underline underline-offset-4">Blue Energy — Shipyard SMR Construction</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+          MIT spinout Blue Energy's entire business model is predicated on building modular nuclear plants in existing shipyards. Projected cost reduction from $10,000/kW to $2,000/kW. Reactor buildings use <strong class="text-primary">offshore wind XL-monopile technology</strong>.
+        </p>
+        <span class="flex items-center gap-2 text-primary-container font-bold text-xs uppercase tracking-widest">
+          World Nuclear News (2025) <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- The Norwegian Position -->
+<section class="py-20" style="background:#F5F7FC;">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Norwegian Context</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">Norway's unique position</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-7 space-y-4">
+        <p class="text-on-surface-variant leading-relaxed">
+          Norway's position is distinctive. The country hosts one of the world's <strong class="text-primary">most sophisticated offshore construction ecosystems</strong>, with decades of experience delivering complex, safety-critical platforms on schedule and budget in some of the planet's harshest environments.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          A peer-reviewed study (Deegan et al., 2025, citing Afewerki et al., 2025) found that <strong class="text-primary">70–80% of Norwegian O&amp;G knowledge and competence is transferable to offshore wind and aquaculture</strong>. The transferability to nuclear construction — which shares heavy-fabrication and safety-critical practices common to both O&amp;G and offshore wind — implies a potentially high overlap, but this is an editor's estimation, not a direct finding of the study.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          Yet the study also identified that transfer <strong class="text-primary">"is slow and does not take place in a consistent way."</strong> The barriers are not technical, they are institutional: salary competition with oil&amp;gas, lack of long-term policy direction (the most cited barrier), and integration costs.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          The study's conclusion is clear: <em>"more deliberate government action"</em> is needed to enable effective knowledge transfer. The skills are there. The infrastructure is there. What's missing is the institutional bridge.
+        </p>
+      </div>
+      <div class="lg:col-span-5 space-y-4">
+        <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+          <h3 class="text-sm font-bold text-primary mb-4">Norwegian O&amp;G workforce</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-on-surface-variant font-bold">GDP contribution</span>
+                <span class="font-black text-primary">26%</span>
+              </div>
+              <div class="w-full bg-outline-variant/30 rounded-full h-2">
+                <div class="h-2 rounded-full bg-primary-container" style="width:26%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-on-surface-variant font-bold">State revenues</span>
+                <span class="font-black text-primary">24.2%</span>
+              </div>
+              <div class="w-full bg-outline-variant/30 rounded-full h-2">
+                <div class="h-2 rounded-full bg-primary-container" style="width:24.2%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-on-surface-variant font-bold">Total exports</span>
+                <span class="font-black text-primary">60.5%</span>
+              </div>
+              <div class="w-full bg-outline-variant/30 rounded-full h-2">
+                <div class="h-2 rounded-full bg-primary-container" style="width:60.5%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-on-surface-variant font-bold">Vocational / technical qualification</span>
+                <span class="font-black text-primary">74%</span>
+              </div>
+              <div class="w-full bg-outline-variant/30 rounded-full h-2">
+                <div class="h-2 rounded-full bg-primary-container" style="width:74%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-on-surface-variant font-bold">Average age (offshore, 2022)</span>
+                <span class="font-black text-primary">44.4 yrs</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-[0.6rem] text-on-surface-variant/40 mt-4">Source: <a href="https://www.sciencedirect.com/science/article/pii/S221462962600112X" target="_blank" class="hover:underline">Deegan et al. (2025), citing Afewerki et al. (2025)</a></p>
+        </div>
+
+        <div class="bg-primary text-white rounded-xl p-6">
+          <h3 class="text-sm font-bold mb-3">Four barriers to transfer</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-xs font-black" style="color:#f5b800;">1</span>
+              <div>
+                <p class="text-xs font-bold text-white/90">Salary competition</p>
+                <p class="text-[0.65rem] text-white/50">O&amp;G wages outcompete other energy sectors</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-xs font-black" style="color:#f5b800;">2</span>
+              <div>
+                <p class="text-xs font-bold text-white/90">Policy direction</p>
+                <p class="text-[0.65rem] text-white/50">Most cited barrier — lack of long-term government signal</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-xs font-black" style="color:#f5b800;">3</span>
+              <div>
+                <p class="text-xs font-bold text-white/90">Integration costs</p>
+                <p class="text-[0.65rem] text-white/50">Complementary knowledge acquisition takes time and investment</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-xs font-black" style="color:#f5b800;">4</span>
+              <div>
+                <p class="text-xs font-bold text-white/90">Institutional silos</p>
+                <p class="text-[0.65rem] text-white/50">Low institutional relatedness between O&amp;G and new sectors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Takeaways -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Key Takeaways</span>
+    <h2 class="text-3xl font-bold font-headline mb-12">Five conclusions from the literature</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">80%</div>
+        <h3 class="text-sm font-bold mb-2">The work is conventional</h3>
+        <p class="text-white/70 text-sm leading-relaxed">Around 80% of nuclear new build is conventional construction — project management, civil works, piping, electrical, mechanical fitting. These skills exist at scale in the O&amp;G workforce.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">80%+</div>
+        <h3 class="text-sm font-bold mb-2">The skills transfer</h3>
+        <p class="text-white/70 text-sm leading-relaxed">Multiple independent studies — UK government, ECITB, Robert Gordon University, IEA — converge on 80%+ transferability of O&amp;G skills to clean energy. For nuclear construction, which shares even more overlap with O&amp;G, transferability is estimated to be comparable or higher.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#aec7f6;">4M+</div>
+        <h3 class="text-sm font-bold mb-2">The need is existential</h3>
+        <p class="text-white/70 text-sm leading-relaxed">The nuclear industry needs 4+ million workers by 2050 while one-third of its current workforce retires by 2033. It cannot scale from nuclear-only pipelines.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#aec7f6;">Institutional</div>
+        <h3 class="text-sm font-bold mb-2">The barriers are not technical</h3>
+        <p class="text-white/70 text-sm leading-relaxed">Every study identifies the same pattern: the barriers to competence transfer are institutional — recruitment silos, salary competition, policy uncertainty — not technical capability gaps.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">Proven</div>
+        <h3 class="text-sm font-bold mb-2">It already works</h3>
+        <p class="text-white/70 text-sm leading-relaxed">From Lake Charles AP1000 modules to Cammell Laird's shipyard pivot to Norwegian floating nuclear partnerships — O&amp;G-to-nuclear transfer is not theoretical. It is already happening.</p>
+      </div>
+    </div>
+    <div class="mt-6 bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="text-white/70 text-sm leading-relaxed">
+        The NNC concept is designed around how the existing yard industry does construction — connecting Norwegian O&amp;G construction expertise to the nuclear new build market.
+      </p>
+      <a href="nnc.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors whitespace-nowrap flex-shrink-0" style="color:#f5b800;">
+        Read about the NNC Concept <span class="material-symbols-outlined" style="font-size:0.9rem;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Sources -->
+<section class="py-12 bg-white border-t border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-8">
+    <h3 class="text-sm font-bold text-primary mb-4">Sources</h3>
+    <div class="space-y-2 text-[0.7rem] text-on-surface-variant/60 leading-relaxed">
+      <p><a href="https://www.gov.uk/government/publications/clean-power-2030-action-plan-assessment-of-the-clean-energy-skills-challenge/assessment-of-the-clean-energy-skills-challenge" target="_blank" class="hover:underline hover:text-primary">Department for Energy Security and Net Zero. (2025, March 25). <em>Assessment of the clean energy skills challenge.</em> GOV.UK.</a></p>
+      <p><a href="https://www.rgu.ac.uk/news/news-2023/6352-clock-ticking-for-energy-jobs" target="_blank" class="hover:underline hover:text-primary">Robert Gordon University. (2021–2023). <em>UK Offshore Energy Workforce Research.</em></a></p>
+      <p><a href="https://www.ecitb.org.uk/wp-content/uploads/2020/08/Skills-Transferability-Report-FA.pdf" target="_blank" class="hover:underline hover:text-primary">Engineering Construction Industry Training Board. (2020). <em>Skills Transferability in the Engineering Construction Industry.</em> ECITB.</a></p>
+      <p><a href="https://www.iea.org/reports/world-energy-employment-2025/executive-summary" target="_blank" class="hover:underline hover:text-primary">International Energy Agency. (2025). <em>World Energy Employment 2025.</em> IEA.</a></p>
+      <p><a href="https://www.iaea.org/newscenter/news/sustainability-through-capacity-building-iaea-hosts-conference-on-nuclear-knowledge-management-and-human-resources-development" target="_blank" class="hover:underline hover:text-primary">International Atomic Energy Agency. (2024). <em>Sustainability Through Capacity Building: IAEA Hosts Conference on Nuclear Knowledge Management and Human Resources Development.</em> IAEA.</a></p>
+      <p><a href="https://www.world-nuclear-news.org/articles/viewpoint-reframing-nuclears-talent-challenge-why-scarcity-is-a-myth-and-opportunity-abounds" target="_blank" class="hover:underline hover:text-primary">Chamberlain, J. (2025, May 30). Viewpoint: Reframing nuclear's talent challenge — why scarcity is a myth. <em>World Nuclear News.</em></a></p>
+      <p><a href="https://www.world-nuclear-news.org/Articles/UK-industry-gearing-up-for-new-build,-NIA-reports" target="_blank" class="hover:underline hover:text-primary">Nuclear Industry Association. (2008). <em>The UK capability to deliver a new nuclear build programme — 2008 Update.</em> NIA.</a></p>
+      <p><a href="https://www.sciencedirect.com/science/article/pii/S221462962600112X" target="_blank" class="hover:underline hover:text-primary">Deegan, J. et al. (2025). The oil and gas industry — a key to a successful, sustainable transition in Norway? Barriers and challenges to knowledge transfer, citing Afewerki et al. (2025). <em>Energy Research &amp; Social Science.</em></a></p>
+      <p><a href="https://www.world-nuclear-news.org/Articles/Study-quantifies-nuclear-sector-s-job-creation" target="_blank" class="hover:underline hover:text-primary">OECD Nuclear Energy Agency &amp; IAEA. (2018). <em>Measuring Employment Generated by the Nuclear Power Sector.</em></a></p>
+      <p><a href="https://www.lucidcatalyst.com/the-eti-nuclear-cost-drivers" target="_blank" class="hover:underline hover:text-primary">LucidCatalyst. (2018). <em>The ETI Nuclear Cost Drivers Project: Summary Report.</em> Energy Technologies Institute.</a></p>
+      <p><a href="https://www.nationalacademies.org/read/26630/chapter/1" target="_blank" class="hover:underline hover:text-primary">National Academies of Sciences, Engineering, and Medicine. (2023). <em>Laying the Foundation for New and Advanced Nuclear Reactors in the United States.</em> The National Academies Press.</a></p>
+      <p><a href="https://www.nei.org/advantages/jobs" target="_blank" class="hover:underline hover:text-primary">Nuclear Energy Institute. (2024). <em>Nuclear Energy Industry Workforce Strategic Plan &amp; Wages, Benefits, and Change Report.</em> NEI.</a></p>
+      <p><a href="https://www.neimagazine.com/news/nuvia-forms-new-build-alliance-with-cammell-laird/" target="_blank" class="hover:underline hover:text-primary">Nuclear Engineering International. (2010). Nuvia forms new-build alliance with Cammell Laird.</a></p>
+      <p><a href="https://www.world-nuclear-news.org/articles/us-startup-aims-for-shipyard-smr-construction" target="_blank" class="hover:underline hover:text-primary">World Nuclear News. (2025). US startup aims for shipyard SMR construction.</a></p>
+      <p>World Nuclear News. (2025). Norwegian collaboration on floating nuclear power plants.</p>
+      <p>OECD Nuclear Energy Agency. (2025). Nuclear construction excellence starts with collaboration.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-[#eeeeee]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-0">
+      <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;margin-bottom:8px;"></a>
+      <p class="font-headline text-[10px] uppercase tracking-widest text-slate-500">&copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 font-headline text-xs uppercase tracking-widest">
+      <a class="text-slate-500 hover:text-primary-container underline-offset-4 hover:underline transition-opacity" href="privacy.html">Privacy Policy</a>
+      <a class="text-slate-500 hover:text-primary-container underline-offset-4 hover:underline transition-opacity" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+
+</body>
+</html>

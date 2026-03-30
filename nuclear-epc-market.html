@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nuclear EPC Market Analysis | ARV Energy</title>
+<meta name="description" content="Analysis of the global nuclear EPC landscape — who builds nuclear plants, how much they have built, and the 345 GWe gap the COP28 tripling target creates."/>
+<link rel="canonical" href="https://www.arv.energy/nuclear-epc-market.html"/>
+<link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.arv.energy/nuclear-epc-market.html"/>
+<meta property="og:title" content="Nuclear EPC Market Analysis | ARV Energy"/>
+<meta property="og:description" content="Analysis of the global nuclear EPC landscape — who builds nuclear plants, how much they have built, and the 345 GWe gap the COP28 tripling target creates."/>
+<meta property="og:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Nuclear EPC Market Analysis | ARV Energy"/>
+<meta name="twitter:description" content="Analysis of the global nuclear EPC landscape — who builds nuclear plants, how much they have built, and the 345 GWe gap the COP28 tripling target creates."/>
+<meta name="twitter:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .glass-header { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); }
+  table.epc-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  table.epc-table th { text-align: left; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; color: #708ab5; padding: 10px 12px; border-bottom: 2px solid #002147; white-space: nowrap; }
+  table.epc-table td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.06); vertical-align: top; color: #44474e; }
+  table.epc-table tr:hover td { background: rgba(0,10,30,0.02); }
+  table.epc-table .epc-name { font-weight: 700; color: #000a1e; white-space: nowrap; }
+  table.epc-table .epc-gwe { font-weight: 800; color: #002147; font-family: 'Space Grotesk', sans-serif; }
+  .assessment-plausible   { background:#e8f5e9; color:#2e7d32; }
+  .assessment-challenging  { background:#fff8e1; color:#f57f17; }
+  .assessment-unlikely     { background:#fce4ec; color:#c62828; }
+  .assessment-uncertain    { background:#e8eaf6; color:#5c6bc0; }
+  .assessment-ambitious    { background:#fff3e0; color:#ef6c00; }
+  .assessment-support      { background:#f3f3f3; color:#757575; }
+  .assessment-exceeds      { background:#e8f5e9; color:#1b5e20; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:3px; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
+</style>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-white">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-header border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+  <div class="hidden md:flex items-center space-x-8 font-headline text-sm font-medium tracking-tight">
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="index.html">Home</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="nnc.html">NNC Concept</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="heritage.html">Heritage</a>
+    <a class="text-primary-container border-b-2 border-primary-container pb-1" href="resources.html">Resources</a>
+    <a class="text-slate-600 hover:text-primary-container transition-colors" href="index.html#contact">Contact</a>
+  </div>
+  <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-primary-container" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+  </button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-primary-container" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-primary-container font-bold" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<main class="pt-20">
+
+<!-- Hero -->
+<section class="bg-primary text-white py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-8">
+    <a href="resources.html" class="inline-flex items-center gap-1 text-[0.6875rem] font-bold uppercase tracking-widest text-primary-fixed-dim mb-6 hover:text-white transition-colors">
+      <span class="material-symbols-outlined" style="font-size:0.8rem;">arrow_back</span> Resources
+    </a>
+    <h1 class="text-4xl lg:text-5xl font-bold font-headline tracking-tight leading-[1.05] mb-6">
+      Nuclear EPC Market Analysis
+    </h1>
+    <p class="text-white/65 text-lg leading-relaxed max-w-3xl mb-10">
+      Who builds nuclear power plants, how much have they built, and what does the COP28 tripling target mean for the market? An analysis of the market gap to fill.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#aec7f6;">~400</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">GWe built since 1954</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#f5b800;">~800</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">GWe new build required</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#aec7f6;">57%</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">Is covered if EPCs can replicate historical deployments</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+        <div class="text-2xl font-black font-headline" style="color:#f5b800;">345</div>
+        <div class="text-[0.6rem] uppercase tracking-widest text-white/40 font-bold mt-1">GWe open market gap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Executive Summary -->
+<section class="py-16 bg-white border-b border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-5">
+        <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Executive Summary</span>
+        <h2 class="text-3xl font-bold font-headline tracking-tight text-primary mb-6 leading-[1.1]">
+          The world has never built nuclear this fast
+        </h2>
+      </div>
+      <div class="lg:col-span-7 space-y-4">
+        <p class="text-on-surface-variant leading-relaxed">
+          The COP28 Declaration to Triple Nuclear Energy calls for <strong class="text-primary">1,200 GWe of global nuclear capacity by 2050</strong> — up from ~400 GWe today. That means roughly <strong class="text-primary">~800 GWe of new build</strong> in 25 years.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          For context: the fastest nuclear build era in history (1972–1989) averaged <strong class="text-primary">16.4 GWe/year</strong>. Meeting the tripling target requires <strong class="text-primary">~32 GWe/year</strong> — roughly double the peak historical rate, sustained for 25 years.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          This report examines the existing nuclear EPC landscape and asks: <em>if every established nuclear EPC replicates its entire historical construction record in the next 25 years, how much of the target can they cover?</em> The answer — roughly 57% — reveals a <strong class="text-primary">345 GWe open market gap</strong> that opens up for new entrants to fill.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Global EPC Landscape -->
+<section class="py-20" style="background:#F5F7FC;">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Landscape</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">Who builds nuclear power plants</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <!-- Chart -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+          <h3 class="text-sm font-bold text-primary mb-1">Historical capacity built by EPC (GWe)</h3>
+          <p class="text-[0.65rem] text-on-surface-variant/60 mb-4">Approximate, deduplicated. Source: IAEA PRIS, WNA, company reports.</p>
+          <canvas id="epcBarChart" height="300"></canvas>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="lg:col-span-7 overflow-x-auto">
+        <div class="bg-white rounded-xl border border-outline-variant/30 p-1">
+          <table class="epc-table">
+            <thead>
+              <tr>
+                <th>EPC Contractor</th>
+                <th>Country</th>
+                <th>Role</th>
+                <th style="text-align:right;">Units</th>
+                <th style="text-align:right;">GWe</th>
+                <th>Key Reactor Types</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="epc-name">Bechtel</td>
+                <td>USA</td>
+                <td>EPC contractor</td>
+                <td style="text-align:right;">150</td>
+                <td style="text-align:right;" class="epc-gwe">76</td>
+                <td>Various (Westinghouse, GE)</td>
+              </tr>
+              <tr>
+                <td class="epc-name">EDF / Framatome</td>
+                <td>France</td>
+                <td>AE + NSSS</td>
+                <td style="text-align:right;">66</td>
+                <td style="text-align:right;" class="epc-gwe">72</td>
+                <td>PWR 900/1300/N4, EPR</td>
+              </tr>
+              <tr>
+                <td class="epc-name">GE Vernova Hitachi</td>
+                <td>USA / Japan</td>
+                <td>NSSS + partial EPC</td>
+                <td style="text-align:right;">83</td>
+                <td style="text-align:right;" class="epc-gwe">72</td>
+                <td>BWR-1 to 6, ABWR</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Rosatom</td>
+                <td>Russia</td>
+                <td>Full EPC + NSSS</td>
+                <td style="text-align:right;">75</td>
+                <td style="text-align:right;" class="epc-gwe">65</td>
+                <td>VVER-440/1000/1200</td>
+              </tr>
+              <tr>
+                <td class="epc-name">CGN</td>
+                <td>China</td>
+                <td>Full EPC + NSSS</td>
+                <td style="text-align:right;">27</td>
+                <td style="text-align:right;" class="epc-gwe">30</td>
+                <td>CPR-1000, Hualong One</td>
+              </tr>
+              <tr>
+                <td class="epc-name">CNNC</td>
+                <td>China</td>
+                <td>Full EPC + NSSS</td>
+                <td style="text-align:right;">30</td>
+                <td style="text-align:right;" class="epc-gwe">28</td>
+                <td>CNP-300/600, Hualong One, CAP1000</td>
+              </tr>
+              <tr>
+                <td class="epc-name">AtkinsRéalis</td>
+                <td>Canada</td>
+                <td>NSSS + EPC</td>
+                <td style="text-align:right;">41</td>
+                <td style="text-align:right;" class="epc-gwe">24</td>
+                <td>CANDU-6, CANDU MONARK</td>
+              </tr>
+              <tr>
+                <td class="epc-name">MHI</td>
+                <td>Japan</td>
+                <td>NSSS + EPC</td>
+                <td style="text-align:right;">24</td>
+                <td style="text-align:right;" class="epc-gwe">22</td>
+                <td>PWR (Mitsubishi design)</td>
+              </tr>
+              <tr>
+                <td class="epc-name">KEPCO / KHNP</td>
+                <td>South Korea</td>
+                <td>Full EPC + NSSS</td>
+                <td style="text-align:right;">32</td>
+                <td style="text-align:right;" class="epc-gwe">32</td>
+                <td>OPR-1000, APR-1400</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Westinghouse</td>
+                <td>USA</td>
+                <td>NSSS vendor</td>
+                <td style="text-align:right;">12</td>
+                <td style="text-align:right;" class="epc-gwe">14</td>
+                <td>AP1000</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Toshiba / IHI</td>
+                <td>Japan</td>
+                <td>NSSS + EPC</td>
+                <td style="text-align:right;">10</td>
+                <td style="text-align:right;" class="epc-gwe">10</td>
+                <td>BWR, ABWR</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Aecon-Kiewit</td>
+                <td>Canada</td>
+                <td>Lead EPC contractor</td>
+                <td style="text-align:right;">5</td>
+                <td style="text-align:right;" class="epc-gwe">5</td>
+                <td>CANDU refurb, BWRX-300</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Others</td>
+                <td>Various</td>
+                <td>Domestic / support</td>
+                <td style="text-align:right;">31</td>
+                <td style="text-align:right;" class="epc-gwe">16</td>
+                <td>IPHWR, Ansaldo, Doosan</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="border-top:2px solid #002147;">
+                <td class="epc-name" colspan="3">Deduplicated global total</td>
+                <td style="text-align:right;" class="epc-gwe">~647</td>
+                <td style="text-align:right;" class="epc-gwe">~400</td>
+                <td style="font-size:0.65rem;color:#74777f;">Since 1954. IAEA PRIS.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The 2050 Target -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">The Target</span>
+      <h2 class="text-3xl font-bold font-headline tracking-tight text-primary">From ~400 GWe to 1,200 GWe by 2050</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-primary text-white p-8 rounded-xl">
+        <div class="text-4xl font-black font-headline mb-2" style="color:#aec7f6;">~400 GWe</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-white/50 font-bold mb-4">Current global capacity (2025)</div>
+        <p class="text-sm text-white/60 leading-snug">439 reactors across 31 countries. Built over 70 years since the first grid-connected reactor in 1954.</p>
+      </div>
+      <div class="bg-primary text-white p-8 rounded-xl">
+        <div class="text-4xl font-black font-headline mb-2" style="color:#aec7f6;">1,200 GWe</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-white/50 font-bold mb-4">COP28 tripling target (2050)</div>
+        <p class="text-sm text-white/60 leading-snug">Endorsed by 30+ countries at COP28 in December 2023. WNA's World Nuclear Outlook targets even higher: 1,446 GWe.</p>
+      </div>
+      <div class="p-8 rounded-xl" style="background:#F5F7FC; border:2px solid #f5b800;">
+        <div class="text-4xl font-black font-headline mb-2 text-primary">~800 GWe</div>
+        <div class="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold mb-4">New build required</div>
+        <p class="text-sm text-on-surface-variant leading-snug">Twice the total capacity ever built — in one third of the time. The peak historical rate (1972–1989) was 16.4 GWe/year; ~800 GWe in 25 years requires ~32 GWe/year — double the fastest pace ever achieved.</p>
+      </div>
+    </div>
+
+    <div class="bg-primary p-6 rounded-xl max-w-3xl">
+      <p class="text-white/80 text-sm leading-relaxed">
+        <strong class="text-white">The scale challenge:</strong> Between 1972 and 1989 — the fastest nuclear build era in history — the world averaged 16.4 GWe/year. Meeting the COP28 target requires <strong class="text-white">32.9 GWe/year</strong> from 2025. That's double the peak historical rate, sustained for 25 years.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Gap Analysis: The Replication Scenario -->
+<section class="py-20" style="background:#F5F7FC;">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-12">
+      <span class="text-[0.6875rem] font-black uppercase tracking-widest text-on-surface-variant mb-4 block">Gap Analysis</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+        <h2 class="text-3xl font-bold font-headline tracking-tight text-primary leading-[1.1]">
+          What if every EPC replicates its entire history?
+        </h2>
+        <p class="text-on-surface-variant leading-relaxed">
+          A generous thought experiment: if every nuclear EPC builds as much capacity in the next 25 years as they have built across their entire history — how much of the ~800 GWe target is covered?
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-10">
+      <!-- Donut chart -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-xl border border-outline-variant/30 p-6">
+          <h3 class="text-sm font-bold text-primary mb-4">Replication scenario vs. ~800 GWe target</h3>
+          <canvas id="gapDonut" height="280"></canvas>
+        </div>
+      </div>
+
+      <!-- Gap table -->
+      <div class="lg:col-span-7 overflow-x-auto">
+        <div class="bg-white rounded-xl border border-outline-variant/30 p-1">
+          <table class="epc-table">
+            <thead>
+              <tr>
+                <th>EPC</th>
+                <th style="text-align:right;">Historic GWe</th>
+                <th style="text-align:right;">Share of target</th>
+                <th>Assessment</th>
+                <th>Commentary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="epc-name">Bechtel</td>
+                <td style="text-align:right;" class="epc-gwe">76</td>
+                <td style="text-align:right;">9.5%</td>
+                <td><span class="badge assessment-challenging">Challenging</span></td>
+                <td>Largest Western EPC. Vogtle experience. Poland build. Constrained by NSSS vendor availability.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">EDF / Framatome</td>
+                <td style="text-align:right;" class="epc-gwe">72</td>
+                <td style="text-align:right;">9.0%</td>
+                <td><span class="badge assessment-challenging">Challenging</span></td>
+                <td>Narrowed geographic focus to France, Nordics, Benelux, and UK. Withdrew from bids in Poland, India, and Canada. Rebuilding domestic capability for EPR2 programme (6–14 units). Sizewell C ongoing.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">GE Vernova Hitachi</td>
+                <td style="text-align:right;" class="epc-gwe">72</td>
+                <td style="text-align:right;">9.0%</td>
+                <td><span class="badge assessment-ambitious">Ambitious</span></td>
+                <td>$40B Japan-US deal (Mar 2026) for BWRX-300 builds in Tennessee and Alabama. Darlington SMR under construction in Canada. Multiple international deployments planned.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Rosatom</td>
+                <td style="text-align:right;" class="epc-gwe">65</td>
+                <td style="text-align:right;">8.1%</td>
+                <td><span class="badge assessment-uncertain">Uncertain</span></td>
+                <td>Active pipeline (~20 units abroad), but sanctions and geopolitics cloud outlook.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">CNNC + CGN</td>
+                <td style="text-align:right;" class="epc-gwe">50</td>
+                <td style="text-align:right;">6.2%</td>
+                <td><span class="badge assessment-exceeds">Likely exceeds</span></td>
+                <td>Building 6–10 units/year domestically incl. Hualong One and CAP1000 (localised AP1000). 8+ CAP1000 units under construction or approved. Only player at pace to surpass historical total.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">KEPCO / KHNP</td>
+                <td style="text-align:right;" class="epc-gwe">32</td>
+                <td style="text-align:right;">4.0%</td>
+                <td><span class="badge assessment-plausible">Plausible</span></td>
+                <td>Strong recent execution (Barakah). Won Czech tender. IP settlement likely restricts some markets.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">MHI / Toshiba-IHI</td>
+                <td style="text-align:right;" class="epc-gwe">32</td>
+                <td style="text-align:right;">4.0%</td>
+                <td><span class="badge assessment-ambitious">Ambitious</span></td>
+                <td>Major Japan-US nuclear deal ($80–100B total). MHI, Toshiba, and IHI named as supply chain partners. MHI developing next-gen reactor. Japanese restart accelerating.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">AtkinsRéalis</td>
+                <td style="text-align:right;" class="epc-gwe">24</td>
+                <td style="text-align:right;">3.0%</td>
+                <td><span class="badge assessment-plausible">Plausible</span></td>
+                <td>Refocusing on CANDU. Won $2.85B Cernavoda contract (Romania, 2 new units). Developing CANDU MONARK (Gen III+). CAD $304M government loan. Turkey and Poland exploration.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">India (NPCIL) + others</td>
+                <td style="text-align:right;" class="epc-gwe">15</td>
+                <td style="text-align:right;">1.9%</td>
+                <td><span class="badge assessment-plausible">Plausible</span></td>
+                <td>India targets 22 GW by 2031. Active PHWR + imported designs. Argentina: 3 reactors.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Westinghouse</td>
+                <td style="text-align:right;" class="epc-gwe">14</td>
+                <td style="text-align:right;">1.7%</td>
+                <td><span class="badge assessment-plausible">Plausible</span></td>
+                <td>Massive global demand. 6 operating, 14 under construction (incl. China CAP1000), 5 under contract. Poland (3 units), Bulgaria (2), Ukraine (up to 9), 10 more planned in US. $80B Japan-US partnership.</td>
+              </tr>
+              <tr>
+                <td class="epc-name">Aecon-Kiewit</td>
+                <td style="text-align:right;" class="epc-gwe">5</td>
+                <td style="text-align:right;">0.6%</td>
+                <td><span class="badge assessment-plausible">Plausible</span></td>
+                <td>Lead EPC for Darlington BWRX-300 (North America's first grid-scale SMR, $1.3B CAD). Construction licence issued Apr 2025. 3 more units planned. Also assisting Estonia deployment.</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="border-top:2px solid #002147;">
+                <td class="epc-name">Total (all EPCs replicate)</td>
+                <td style="text-align:right;" class="epc-gwe">458</td>
+                <td style="text-align:right;font-weight:800;color:#002147;">57%</td>
+                <td colspan="2"></td>
+              </tr>
+              <tr style="background:rgba(245,184,0,0.06);">
+                <td class="epc-name" style="color:#c08a00;">Remaining gap</td>
+                <td style="text-align:right;font-weight:800;color:#c08a00;">345</td>
+                <td style="text-align:right;font-weight:800;color:#c08a00;">43%</td>
+                <td colspan="2" style="color:#c08a00;font-weight:600;font-size:0.72rem;">Market space for new entrants</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Takeaways -->
+<section class="py-20 bg-primary text-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <span class="text-[0.6875rem] font-black uppercase tracking-widest text-primary-fixed-dim mb-4 block">Key Takeaways</span>
+    <h2 class="text-3xl font-bold font-headline mb-12">Six implications for the market</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">57%</div>
+        <p class="text-white/70 text-sm leading-relaxed">Even if every existing nuclear EPC replicates its <em>entire</em> historical construction record in just 25 years, it would only cover roughly half the ~800 GWe target.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">2×</div>
+        <p class="text-white/70 text-sm leading-relaxed">The peak historical build rate (1972–1989) was 16.4 GWe/year. The tripling target requires ~32 GWe/year — double the fastest pace ever achieved, sustained for 25 years.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#aec7f6;">New entrants</div>
+        <p class="text-white/70 text-sm leading-relaxed">Massive scaling of existing EPCs <em>and</em> entry of new players is required. O&amp;G EPCs, modular construction firms, and new national programmes will be essential.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#aec7f6;">China</div>
+        <p class="text-white/70 text-sm leading-relaxed">CNNC + CGN is the only player currently building at a rate that could plausibly exceed its historical total within 25 years — 6–10 units/year, ~8 GW/year — including the CAP1000 (localised AP1000).</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#aec7f6;">Workforce</div>
+        <p class="text-white/70 text-sm leading-relaxed mb-3">Western EPCs (Bechtel, EDF/Framatome) face capability gaps from decades of dormancy. Workforce rebuilding is the critical bottleneck — not reactor technology.</p>
+        <a href="competence-transfer.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors" style="color:#f5b800;">
+          Read our competence transfer report <span class="material-symbols-outlined" style="font-size:0.9rem;">arrow_forward</span>
+        </a>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <div class="text-3xl font-black font-headline mb-3" style="color:#f5b800;">Domestic EPC</div>
+        <p class="text-white/70 text-sm leading-relaxed">Countries without domestic nuclear EPC capability risk being deprioritised. EDF's 2025 withdrawal from non-European markets to focus on France proves the point: when domestic demand kicks off, international customers lose priority. Building domestic EPC capacity is a more robust path to nuclear deployment.</p>
+      </div>
+    </div>
+    <div class="mt-6 bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="text-white/70 text-sm leading-relaxed">
+        This gap is exactly the market opportunity that the NNC concept is designed to address by leveraging existing O&amp;G EPC and yard expertise towards the nuclear industry.
+      </p>
+      <a href="nnc.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors whitespace-nowrap flex-shrink-0" style="color:#f5b800;">
+        Read about the NNC Concept <span class="material-symbols-outlined" style="font-size:0.9rem;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Sources -->
+<section class="py-12 bg-white border-t border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-8">
+    <h3 class="text-sm font-bold text-primary mb-4">Sources</h3>
+    <div class="space-y-2 text-[0.7rem] text-on-surface-variant/60 leading-relaxed">
+      <p><a href="https://pris.iaea.org/pris/" target="_blank" class="hover:underline hover:text-primary">International Atomic Energy Agency. <em>Power Reactor Information System (PRIS).</em> IAEA.</a></p>
+      <p><a href="https://world-nuclear.org/" target="_blank" class="hover:underline hover:text-primary">World Nuclear Association. <em>World Nuclear Outlook 2025</em> and reactor database.</a></p>
+      <p><a href="https://www.cop28.com/en/declaration-to-triple-nuclear-energy" target="_blank" class="hover:underline hover:text-primary">Declaration to Triple Nuclear Energy. COP28, December 2023.</a></p>
+      <p>Company reports and investor presentations: Bechtel, EDF, GE Vernova Hitachi, Rosatom, CGN, CNNC, AtkinsRéalis, MHI, KEPCO/KHNP, Westinghouse, Toshiba/IHI, Aecon-Kiewit.</p>
+      <p class="text-on-surface-variant/40 mt-3">Compiled March 2026. Data reflects approximate, deduplicated capacity figures. Some overlap exists between NSSS vendors and EPC contractors (e.g. Westinghouse reactor technology underpins ~185 GW of global capacity, but direct EPC on only ~14 GWe).</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-[#eeeeee]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-0">
+      <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;margin-bottom:8px;"></a>
+      <p class="font-headline text-[10px] uppercase tracking-widest text-slate-500">&copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 font-headline text-xs uppercase tracking-widest">
+      <a class="text-slate-500 hover:text-primary-container underline-offset-4 hover:underline transition-opacity" href="privacy.html">Privacy Policy</a>
+      <a class="text-slate-500 hover:text-primary-container underline-offset-4 hover:underline transition-opacity" href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── EPC Bar Chart ─────────────────────────────────────────────────
+(function () {
+  const labels = ['Bechtel','EDF / Framatome','GE Vernova Hitachi','Rosatom','KEPCO / KHNP','CGN','CNNC','AECL / AtkinsRéalis','MHI','India + others','Westinghouse','Toshiba / IHI'];
+  const data   = [76,72,72,65,32,30,28,24,22,15,14,10];
+  new Chart(document.getElementById('epcBarChart').getContext('2d'), {
+    type: 'bar',
+    data: { labels, datasets: [{ data, backgroundColor:'#002147', borderRadius:3 }] },
+    options: {
+      indexAxis: 'y', responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + ' GWe' } }
+      },
+      scales: {
+        x: { beginAtZero:true, max:85, grid:{color:'rgba(0,0,0,0.04)'}, ticks:{font:{family:'Space Grotesk',size:10},callback:v=>v+' GWe'}, border:{display:false} },
+        y: { grid:{display:false}, ticks:{font:{family:'Space Grotesk',size:10},color:'#44474e'}, border:{display:false} }
+      }
+    }
+  });
+})();
+
+// ── Gap Donut ──────────────────────────────────────────────────────
+(function () {
+  new Chart(document.getElementById('gapDonut').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Bechtel','EDF / Framatome','GE Vernova Hitachi','Rosatom','CNNC + CGN','KEPCO / KHNP','Other established EPCs','Open market gap'],
+      datasets: [{
+        data: [76,72,72,65,50,32,91,345],
+        backgroundColor: ['#001a3d','#002d5e','#1a4a80','#2e6499','#4a80b4','#6fa0cc','#9fc0df','#f5b800'],
+        borderWidth: 2, borderColor: '#ffffff',
+      }]
+    },
+    options: {
+      cutout: '55%', responsive: true,
+      plugins: {
+        legend: { position:'bottom', labels:{ font:{family:'Space Grotesk',size:9}, boxWidth:12, padding:8 } },
+        tooltip: { callbacks:{ label: ctx => ' ' + ctx.label + ': ' + ctx.raw + ' GWe (' + (ctx.raw/800*100).toFixed(1) + '%)' } },
+        annotation: { annotations: {
+          centreTop: { type:'label', xValue:0, yValue:0, content:'345 GWe', color:'#000a1e', font:{size:22,weight:'900',family:'Space Grotesk'} },
+          centreBtm: { type:'label', xValue:0, yValue:30, content:'open market', color:'#74777f', font:{size:10,family:'Space Grotesk'} },
+        }}
+      }
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>

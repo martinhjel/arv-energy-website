@@ -1,48 +1,116 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="light" lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found | Arv Energy</title>
-  <meta name="description" content="The page you are looking for could not be found." />
-  <link rel="canonical" href="https://www.arv.energy/404.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/Symbol.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Page Not Found | Arv Energy</title>
+<meta name="description" content="The page you are looking for could not be found."/>
+<link rel="canonical" href="https://www.arv.energy/404.html"/>
+<link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
 </head>
-<body>
-  <div class="page">
-    <header class="wrap site-header">
-      <div class="brand">
-        <span class="brand-name">Arv Energy</span>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
-    </header>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
 
-    <main>
-      <section class="hero wrap">
-        <div class="hero-content">
-          <h1>404 — Page not found</h1>
-          <p class="lead">The page you are looking for does not exist or has moved.</p>
-          <div class="actions">
-            <a class="btn primary" href="index.html">Back to home</a>
-            <a class="btn ghost" href="mailto:martin.hjelmeland@arv.energy?subject=Arv%20Energy%20Website">Contact us</a>
-          </div>
-        </div>
-        <div class="hero-panel">
-          <img src="assets/Vertical-white-text.svg" alt="Arv Energy logo" class="hero-logo" />
-        </div>
-      </section>
-    </main>
-
-    <footer class="wrap footer">
-      <p>&copy; 2026 Arv Energy · <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html">Home</a>
+    <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="heritage.html">Heritage</a>
+    <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="resources.html">Resources</a>
+    <a class="font-headline text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html#contact">Contact</a>
   </div>
+  <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-[#002147]" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+  </button>
+</div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-[#002147]" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<!-- 404 Content -->
+<section class="min-h-screen flex items-center justify-center pt-20 pb-20">
+  <div class="max-w-xl mx-auto px-8 text-center">
+    <div class="text-[8rem] md:text-[12rem] font-black font-headline leading-none tracking-tighter text-primary/10 select-none mb-2">404</div>
+    <h1 class="text-3xl md:text-4xl font-bold font-headline tracking-tight text-primary mb-4">Page not found</h1>
+    <p class="text-on-surface-variant leading-relaxed mb-10 max-w-md mx-auto">
+      The page you are looking for does not exist or has been moved. Try heading back home or reach out if you need help.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="index.html"
+         class="inline-flex items-center gap-2 bg-primary text-white font-bold text-sm tracking-wide uppercase px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Back to home
+      </a>
+      <a href="mailto:info@arv.energy"
+         class="inline-flex items-center gap-2 border border-slate-300 text-primary font-bold text-sm tracking-wide uppercase px-6 py-3 rounded-md hover:bg-surface-container-low transition-colors">
+        Contact us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#f9f9f9] w-full border-t border-slate-200">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="mb-6 md:mb-0"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;"></a>
+    <div class="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] underline-offset-4 hover:underline transition-all" href="privacy.html">Privacy Policy</a>
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] underline-offset-4 hover:underline transition-all" href="index.html#contact">Contact</a>
+    </div>
+    <div class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 text-center md:text-right">
+      &copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile menu script -->
+<script>
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+  function open() {
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    close.focus();
+  }
+  function shut() {
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    btn.focus();
+  }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.classList.contains('hidden')) shut(); });
+})();
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
 </body>
 </html>

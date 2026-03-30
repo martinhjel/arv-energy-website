@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage | Arv Energy</title>
+<meta name="description" content="Arv Energy draws on Norway's deep tradition of nuclear research and offshore engineering excellence."/>
+<link rel="canonical" href="https://www.arv.energy/heritage.html"/>
+<link rel="icon" href="assets/Symbol.svg" type="image/svg+xml"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.arv.energy/heritage.html"/>
+<meta property="og:title" content="Heritage | Arv Energy"/>
+<meta property="og:description" content="Arv Energy draws on Norway's deep tradition of nuclear research and offshore engineering excellence."/>
+<meta property="og:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Heritage | Arv Energy"/>
+<meta name="twitter:description" content="Arv Energy draws on Norway's deep tradition of nuclear research and offshore engineering excellence."/>
+<meta name="twitter:image" content="https://www.arv.energy/assets/hero-platform.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  /* Scroll-reveal: timeline cards */
+  .tl-card {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+  }
+  .tl-card.from-left  { transform: translateX(-28px); }
+  .tl-card.from-right { transform: translateX(28px); }
+  .tl-card.revealed   { opacity: 1; transform: translateX(0); }
+
+  /* On mobile everything stacks — use vertical reveal */
+  @media (max-width: 767px) {
+    .tl-card.from-left,
+    .tl-card.from-right { transform: translateY(24px) translateX(0); }
+    .tl-card.revealed    { transform: translateY(0) translateX(0); }
+  }
+
+  /* Symbol reveal */
+  .tl-dot {
+    opacity: 0;
+    scale: 0.6;
+    transition: opacity 0.5s ease, scale 0.5s ease;
+  }
+  .tl-dot.revealed { opacity: 1; scale: 1; }
+
+  /* Generic reveal-up */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal-up.revealed { opacity: 1; transform: translateY(0); }
+
+  /* Timeline progress fill */
+  .tl-progress { height: 0%; transition: height 60ms linear; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary">
+
+<!-- ── Navigation ────────────────────────────────────────────────── -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/20 shadow-[0_12px_40px_rgba(0,33,71,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+  <a href="index.html"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:24px;width:auto;"></a>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="font-['Space_Grotesk'] text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html">Home</a>
+    <a class="font-['Space_Grotesk'] text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="nnc.html">NNC Concept</a>
+    <a class="font-['Space_Grotesk'] text-sm font-medium tracking-tight text-[#002147] border-b-2 border-[#002147] pb-1" href="heritage.html">Heritage</a>
+    <a class="font-['Space_Grotesk'] text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="resources.html">Resources</a>
+    <a class="font-['Space_Grotesk'] text-sm font-medium tracking-tight text-slate-600 hover:text-[#002147] transition-colors" href="index.html#contact">Contact</a>
+  </div>
+  <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-[#002147]" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined" style="font-size:1.5rem;">menu</span>
+  </button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 hidden" role="dialog" aria-label="Mobile navigation">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute top-0 right-0 w-72 h-full bg-white shadow-2xl p-8 pt-20 flex flex-col gap-6">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-5 p-2 text-[#002147]" aria-label="Close menu">
+      <span class="material-symbols-outlined" style="font-size:1.5rem;">close</span>
+    </button>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html">Home</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="nnc.html">NNC Concept</a>
+    <a class="font-headline text-base font-medium text-[#002147] font-bold" href="heritage.html">Heritage</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="resources.html">Resources</a>
+    <a class="font-headline text-base font-medium text-slate-600" href="index.html#contact">Contact</a>
+  </div>
+</div>
+
+<main class="pt-[72px]">
+
+<!-- ── Hero ───────────────────────────────────────────────────────── -->
+<section class="relative min-h-[54vh] md:min-h-[60vh] overflow-hidden flex items-end">
+  <div class="absolute inset-0">
+    <img src="assets/hero-platform.png" alt="" class="w-full h-full object-cover grayscale opacity-90" style="object-position:center 30%;" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#002147]/90 via-[#002147]/50 to-[#002147]/20"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-8 pb-14 md:pb-20 w-full">
+    <span class="inline-block bg-white/10 backdrop-blur-sm border border-white/10 px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-widest text-white/70 mb-5 rounded">Industrial Heritage</span>
+    <h1 class="text-4xl md:text-6xl font-bold font-headline tracking-tighter text-white leading-[0.95] mb-5">
+      Two Industries Converging
+    </h1>
+    <p class="text-white/70 text-base md:text-lg max-w-xl leading-relaxed">
+      Norway built world-class nuclear research institutions and delivered some of the most complex offshore energy projects in history. This is the legacy Arv Energy is building on top of.
+    </p>
+  </div>
+</section>
+
+<!-- ── Timeline ──────────────────────────────────────────────────── -->
+<section id="timeline-section" class="py-20 md:py-32" style="background:#FAFBFC;">
+  <div class="max-w-5xl mx-auto px-8">
+
+    <!-- Section heading -->
+    <div class="text-center mb-14 md:mb-24 reveal-up">
+      <span class="text-[0.6875rem] font-bold uppercase tracking-widest text-on-surface-variant">Timeline</span>
+      <h2 class="text-3xl md:text-4xl font-bold font-headline text-primary mt-3 tracking-tight">Selected Milestones</h2>
+      <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto text-sm md:text-base">Key moments from Norway's nuclear research and offshore engineering history that inform Arv Energy's approach.</p>
+    </div>
+
+    <div class="relative">
+      <!-- Vertical line — left on mobile, centred on desktop -->
+      <div class="absolute left-[15px] md:left-1/2 md:-translate-x-[1px] top-0 bottom-0 w-[2px] bg-slate-200 overflow-hidden">
+        <div class="tl-progress w-full bg-[#002147]/20"></div>
+      </div>
+
+      <!-- ─── 1948 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-left.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1948</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Institutt for Atomenergi Founded</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Gunnar Randers established Norway's nuclear research institution at Kjeller, placing the country among the first nations to pursue peaceful nuclear energy. The institute — now IFE — laid the groundwork for decades of reactor physics, materials science, and safety culture.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 1951 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-right.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-right md:w-5/12 ml-14 md:ml-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1951</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">JEEP-1 Achieves Criticality</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              The JEEP-1 reactor at Kjeller became the first nuclear reactor outside the great powers to achieve criticality. Norway demonstrated that a small nation could master the most demanding energy technology of its time.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 1958 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-left.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1958</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Halden Boiling Water Reactor</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              The Halden Reactor began operation, eventually becoming the centre of an international OECD research project spanning 20+ countries. For six decades it produced foundational knowledge on fuel behaviour, reactor safety, and human-machine interaction in control rooms.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 1969 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-right.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-right md:w-5/12 ml-14 md:ml-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1969</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Ekofisk — The North Sea Opens</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              The discovery of the Ekofisk field launched Norway's offshore era. Within a decade the country built a world-leading oil and gas industry characterised by stringent safety requirements, massive engineering projects, and an industrial policy that ensured domestic competence development.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 1979 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-left.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1979</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Statfjord A — The Mega-Project Era</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Statfjord A began production as one of the largest concrete gravity-base platforms ever built. The Statfjord development demonstrated that Norwegian yards and engineers could deliver infrastructure of extraordinary scale and complexity, on schedule and to specification.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 1995 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-right.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-right md:w-5/12 ml-14 md:ml-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">1995</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Troll A — Engineering at Scale</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              The Troll A platform — the tallest structure ever moved by humans — was towed to the Troll field in the North Sea. At 472 metres and 656,000 tonnes, it remains an icon of what Norwegian engineering and coastal fabrication yards can achieve.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2007 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-left.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">2007</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Snøhvit LNG</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Snøhvit marked the first field development in the Barents Sea and linked subsea production to LNG export from Melkøya. Its 33,000-tonne process plant was built on a massive steel barge so it could be transported north on the Blue Marlin and floated directly into its final dock on the island — a striking example of O&amp;G system-level execution in remote conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2018 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-right.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-right md:w-5/12 ml-14 md:ml-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">2018</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Halden Reactor Shuts Down</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              After 60 years of operation the Halden Boiling Water Reactor was permanently shut down. The closure marked the end of Norway's active reactor era — but left behind a deep reservoir of nuclear knowledge, safety expertise, and institutional memory.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2019 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-left.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">2019</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Johan Sverdrup — Another Giant Project</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              With power from shore, bridge-linked platforms, and one of the largest developments on the Norwegian shelf, Johan Sverdrup exemplifies modern offshore execution, industrial scale paired with operational efficiency and lower emissions. Its largest offshore lift was approximately 27,000 tonnes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2023 ─── -->
+      <div class="tl-entry relative mb-14 md:mb-24">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/symbol-right.svg" alt="" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-right md:w-5/12 ml-14 md:ml-auto">
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-[0_2px_16px_rgba(0,33,71,0.05)] border-l-4 border-[#002147]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-primary leading-none block mb-3">2023</span>
+            <h3 class="text-lg md:text-xl font-bold text-primary mb-3">Yggdrasil — Digitally Integrated</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Yggdrasil brings Hugin, Munin, and Fulla into one coordinated area development with shared infrastructure and power from shore. It points toward a new generation of Norwegian offshore projects built around integration, efficiency, and lower-emission operations: Munin is designed for unmanned operation, while Hugin A is a 29,000-tonne platform at the centre of the development.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── 2024 — Arv Energy ─── -->
+      <div class="tl-entry relative">
+        <div class="tl-dot absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center" style="width:40px;height:40px;background:#FAFBFC;">
+          <img src="assets/Symbol.svg" alt="Arv Energy" style="width:28px;height:32px;">
+        </div>
+        <div class="tl-card from-left md:w-5/12 ml-14 md:ml-0 md:mr-auto">
+          <div class="bg-[#002147] rounded-xl p-6 md:p-8 shadow-[0_4px_24px_rgba(0,33,71,0.15)]">
+            <span class="text-2xl md:text-3xl font-bold font-headline text-white leading-none block mb-3">2025</span>
+            <h3 class="text-lg md:text-xl font-bold text-white mb-3">The Foundation</h3>
+            <p class="text-sm text-white/70 leading-relaxed">
+              Arv Energy was founded with the goal of bringing the best of these industries to provide clean and valuable energy for generations. The name "Arv", Norwegian for heritage or legacy, reflects a conviction that the best way to build the future is on the foundation of what has already been proven.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /relative timeline wrapper -->
+  </div>
+
+  <!-- Source note -->
+  <p class="text-[0.65rem] text-slate-400 text-center mt-14 md:mt-20 px-8 tracking-wide">Selected milestones drawn from Norwegian nuclear and offshore industrial history.</p>
+</section>
+
+<!-- ── CTA Banner ────────────────────────────────────────────────── -->
+<section class="relative overflow-hidden bg-[#002147] py-20 md:py-28">
+  <div class="relative z-10 max-w-5xl mx-auto px-8">
+    <div class="max-w-2xl reveal-up">
+      <h2 class="text-3xl md:text-4xl font-bold font-headline text-white mb-6 tracking-tight leading-tight">Heritage is not nostalgia.<br/>It is a competitive advantage.</h2>
+      <p class="text-white/60 text-sm md:text-base leading-relaxed mb-8">
+        The engineers who built JEEP-1, the project managers who delivered Troll A, and the researchers who built and ran the Halden Reactor — their knowledge is the foundation for the next chapter in our industry and energy history.
+      </p>
+      <a href="index.html#contact"
+         class="inline-block bg-white text-[#002147] px-8 py-3 rounded-md font-bold tracking-tight hover:bg-slate-100 transition-colors text-sm">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Footer ────────────────────────────────────────────────────── -->
+<footer class="bg-[#f9f9f9] w-full border-t border-slate-200">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="mb-6 md:mb-0"><img src="assets/arv-energy-navy-blue.svg" alt="Arv Energy" style="height:23px;width:auto;"></a>
+    <div class="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] underline-offset-4 hover:underline transition-all" href="privacy.html">Privacy Policy</a>
+      <a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#002147] underline-offset-4 hover:underline transition-all" href="index.html#contact">Contact</a>
+    </div>
+    <div class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 text-center md:text-right">
+      &copy; <span class="copyright-year">2026</span> ARV ENERGY. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Mobile menu ─────────────────────────────────────────────────── */
+(function () {
+  var btn = document.getElementById('mobile-menu-btn');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if (!btn || !menu) return;
+  function open() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; close.focus(); }
+  function shut() { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; btn.focus(); }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.addEventListener('click', shut);
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function (e) {
+    if (menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key === 'Tab') {
+      var focusable = menu.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+
+/* ── Scroll-reveal (IntersectionObserver) ────────────────────────── */
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show everything immediately
+    document.querySelectorAll('.tl-card,.tl-dot,.reveal-up').forEach(function (el) { el.classList.add('revealed'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);            // animate once
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.tl-card, .tl-dot, .reveal-up').forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
+/* ── Timeline progress line ──────────────────────────────────────── */
+(function () {
+  var fill = document.querySelector('.tl-progress');
+  var section = document.getElementById('timeline-section');
+  if (!fill || !section) return;
+  function update() {
+    var rect = section.getBoundingClientRect();
+    var h = section.offsetHeight;
+    var scrolled = -rect.top;
+    var pct = Math.min(Math.max(scrolled / (h - window.innerHeight * 0.6), 0), 1);
+    fill.style.height = (pct * 100) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ── Copyright year ──────────────────────────────────────────────── */
+document.querySelectorAll('.copyright-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>
